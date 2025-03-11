@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>242 Perfume - Cài đặt</title>
+  <style>
+    :root {
+      --primary-color: #e16767;
+      --secondary-color: #f5f5f5;
+      --accent-color: #db32ae;
+      --text-color: #333;
+      --light-text: #777;
+      --success: #27ae60;
+      --warning: #f39c12;
+      --danger: #e74c3c;
+      --pending: #3498db;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #f9f9f9;
+      color: var(--text-color);
+    }
+
+    .container {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 250px;
+      background-color: var(--primary-color);
+      color: white;
+      padding: 20px;
+      position: fixed;
+      height: 100vh;
+      overflow-y: auto;
+    }
+
+    .logo {
+      text-align: center;
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .logo h1 {
+      font-size: 24px;
+    }
+
+    .menu {
+      margin-top: 20px;
+    }
+
+    .menu-item {
+      padding: 12px 15px;
+      border-radius: 5px;
+      margin-bottom: 5px;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+    }
+
+    .menu-item:hover,
+    .menu-item.active {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .menu-item i {
+      margin-right: 10px;
+      font-size: 18px;
+    }
+
+   
+
+    /* Main Content */
+    .main-content {
+      flex: 1;
+      padding: 20px;
+      margin-left: 250px;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      border-bottom: 1px solid #eee;
+      margin-bottom: 20px;
+    }
+
+    .user-info {
+      display: flex;
+      align-items: center;
+    }
+
+    .user-info img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    /* Settings Section */
+    .settings-section {
+      background-color: white;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      margin-bottom: 30px;
+    }
+
+    .settings-section h3 {
+      margin-bottom: 15px;
+      font-size: 18px;
+    }
+
+    .settings-section form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .settings-section label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 600;
+      color: var(--light-text);
+    }
+
+    .settings-section input,
+    .settings-section select,
+    .settings-section textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      outline: none;
+      font-size: 14px;
+    }
+
+    .settings-section textarea {
+      resize: vertical;
+    }
+
+    .save-btn {
+      grid-column: 1 / 3; /* Nút lưu chiếm hết chiều rộng form */
+      padding: 12px 20px;
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 600;
+      margin-top: 10px;
+      align-self: start; /* canh nút ở đầu cột */
+    }
+
+    .save-btn:hover {
+      background-color: #c85757;
+    }
+
+    @media (max-width: 768px) {
+      .sidebar {
+        width: 70px;
+        padding: 15px 10px;
+      }
+
+      .logo h1,
+      .menu-item span {
+        display: none;
+      }
+
+      .menu-item {
+        justify-content: center;
+      }
+
+      .menu-item i {
+        margin-right: 0;
+      }
+
+      .main-content {
+        margin-left: 70px;
+      }
+
+      /* Điều chỉnh form cho màn hình nhỏ */
+      .settings-section form {
+        grid-template-columns: 1fr;
+      }
+      .save-btn {
+        grid-column: 1 / 2;
+      }
+    }
+  </style>
+  <!-- Link Font Awesome để sử dụng icon -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+  />
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo">
+          <a href="page1.html" class="link"></a>
+            <h1>242 Perfume </h1>
+        </div>
+        
+        <div class="menu">
+
+            <div class="menu-item">
+                <a href="dashboard.html" class="menu-link"></a>
+                    <i class="fas fa-dashboard"></i>
+                    <span>Tổng quan</span>
+            </div>
+        
+            <div class="menu-item">
+                <a href="Order.html" class="menu-link"></a>
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Đơn hàng</span>
+            </div>
+        
+            <div class="menu-item">
+                <a href="products.html" class="menu-link"></a>
+                    <i class="fas fa-box"></i>
+                    <span>Sản phẩm</span>
+            </div>
+
+            <div class="menu-item">
+                <a href="customers.html" class="menu-link"></a>
+                    <i class="fas fa-users"></i>
+                    <span>Khách hàng</span>
+            </div>
+
+            <div class="menu-item">
+                <a href="reports.html" class="menu-link"></a>
+                    <i class="fas fa-chart-line"></i>
+                    <span>Báo cáo</span>
+            </div>
+
+            <div  class="menu-item">
+                <a href="settings.html" class="menu-link active"></a>
+                    <i class="fas fa-cog"></i>
+                    <span>Cài đặt</span>
+            </div>              
+        </div>
+    </div>
+    <!-- Main Content -->
+    <div class="main-content">
+      <div class="header">
+        <h2>Cài đặt</h2>
+        <div class="user-info">
+          <img src="images/Lại Nhật Trường.jpg" alt="Admin" />
+          <div>
+            <h4>Lại Nhật Trường</h4>
+            <small>Quản lý</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- Settings Section: Thông tin cửa hàng -->
+      <div class="settings-section">
+        <h3>Thông tin cửa hàng</h3>
+        <form>
+          <div>
+            <label for="storeName">Tên cửa hàng</label>
+            <input type="text" id="storeName" placeholder="VD: 242 Perfume" />
+          </div>
+          <div>
+            <label for="storeEmail">Email liên hệ</label>
+            <input type="email" id="storeEmail" placeholder="VD: support@example.com" />
+          </div>
+          <div>
+            <label for="storePhone">Số điện thoại</label>
+            <input type="text" id="storePhone" placeholder="VD: 0123 456 789" />
+          </div>
+          <div>
+            <label for="storeAddress">Địa chỉ</label>
+            <input type="text" id="storeAddress" placeholder="VD: 123 Đường ABC, Quận X, TP. Y" />
+          </div>
+          <div>
+            <label for="storeDesc">Mô tả ngắn</label>
+            <textarea id="storeDesc" rows="3" placeholder="Mô tả sơ lược về cửa hàng..."></textarea>
+          </div>
+          <button type="submit" class="save-btn">Lưu cài đặt</button>
+        </form>
+      </div>
+
+      <!-- Settings Section: Phương thức thanh toán / giao hàng -->
+      <div class="settings-section">
+        <h3>Phương thức thanh toán / Giao hàng</h3>
+        <form>
+          <div>
+            <label for="paymentMethod">Phương thức thanh toán</label>
+            <select id="paymentMethod">
+              <option value="cod">Thanh toán khi nhận hàng (COD)</option>
+              <option value="bank">Chuyển khoản ngân hàng</option>
+              <option value="momo">Ví điện tử (Momo, ZaloPay, v.v.)</option>
+            </select>
+          </div>
+          <div>
+            <label for="shippingMethod">Đơn vị giao hàng</label>
+            <select id="shippingMethod">
+              <option value="ghn">Giao Hàng Nhanh</option>
+              <option value="ghtk">Giao Hàng Tiết Kiệm</option>
+              <option value="viettel">Viettel Post</option>
+            </select>
+          </div>
+          <div>
+            <label for="shippingFee">Phí vận chuyển mặc định</label>
+            <input type="number" id="shippingFee" placeholder="VD: 30000" />
+          </div>
+          <div>
+            <label for="freeShipThreshold">Miễn phí ship từ đơn hàng (VNĐ)</label>
+            <input type="number" id="freeShipThreshold" placeholder="VD: 500000" />
+          </div>
+          <button type="submit" class="save-btn">Lưu cài đặt</button>
+        </form>
+      </div>
+
+      <!-- Settings Section: Tài khoản & Bảo mật -->
+      <div class="settings-section">
+        <h3>Tài khoản & Bảo mật</h3>
+        <form>
+          <div>
+            <label for="username">Tên đăng nhập</label>
+            <input type="text" id="username" placeholder="VD: admin242" />
+          </div>
+          <div>
+            <label for="password">Mật khẩu mới</label>
+            <input type="password" id="password" placeholder="Nhập mật khẩu mới" />
+          </div>
+          <div>
+            <label for="confirmPassword">Xác nhận mật khẩu</label>
+            <input type="password" id="confirmPassword" placeholder="Nhập lại mật khẩu mới" />
+          </div>
+          <div>
+            <label for="twoFactor">Bật xác thực 2 lớp</label>
+            <select id="twoFactor">
+              <option value="off">Tắt</option>
+              <option value="on">Bật</option>
+            </select>
+          </div>
+          <button type="submit" class="save-btn">Cập nhật</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+  // Select all menu items
+  const menuItems = document.querySelectorAll('.menu-item');
+
+  // Add click event listener to each menu item
+  menuItems.forEach(item => {
+        item.addEventListener('click', function() {
+            // Find the link within the clicked menu item
+            const link = this.querySelector('a');
+            
+            // Check if link exists before navigating
+            if (link && link.href) {
+                // Navigate to the link's href
+                window.location.href = link.href;
+            }
+        });
+
+        // Optional: Add hover and active state styling
+        item.addEventListener('mouseenter', function() {
+            this.style.backgroundColor = '#f0f0f0';
+            this.style.cursor = 'pointer';
+        });
+
+        item.addEventListener('mouseleave', function() {
+            this.style.backgroundColor = '';
+        });
+    });
+
+    // Highlight active menu item based on current page
+    const currentPage = window.location.pathname.split('/').pop();
+    menuItems.forEach(item => {
+        const link = item.querySelector('a');
+        if (link) {
+            const href = link.getAttribute('href');
+            if (href === currentPage) {
+                item.classList.add('active');
+            }
+        }
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const logo = document.querySelector(".logo");
+
+    if (logo) {
+        logo.addEventListener("click", function () {
+            window.location.href = "index.html"; // Chuyển hướng đến trang index.html
+        });
+    }
+});
+  </script>
+</body>
+</html>

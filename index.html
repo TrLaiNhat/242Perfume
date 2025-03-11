@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ | 242 Perfume</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: linear-gradient(90deg, #ce0f7e,#c04f75, #e45f7b, #f9fcff);
+            color: #333;
+        }
+        
+        header {
+            background-color: linear-gradient(90deg, #ce0f7e,#c04f75, #e45f7b, #f9fcff);
+            color: white;
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #f3c78e;
+        }
+        
+        .main-content {
+            padding-top: 70px;
+        }
+        
+        
+        .image-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.image-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.image-slide.active {
+    opacity: 1;
+}
+
+.image-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+        
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+        .hero {
+            position: relative;
+            height: 80vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .hero-content {
+            position: absolute;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            max-width: 800px;
+            padding: 0 2rem;
+        }
+        
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: #ea6469;
+            color: #333;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #efef86;
+        }
+        
+        .navigation-dots {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            z-index: 10;
+        }
+        
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .dot.active {
+            background-color: #f3c78e;
+        }
+        
+        .featured-brands {
+            padding: 4rem 2rem;
+            text-align: center;
+            background-color: white;
+        }
+        
+        .featured-brands h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .featured-brands h2:after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background-color: #f3c78e;
+            bottom: -10px;
+            left: 25%;
+        }
+        
+        .brands-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+                
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+            font-size: 36px;
+            margin: 30px 0;
+            font-weight: normal;
+        }
+        
+        .products {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        
+        .product {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+        
+        .product-image {
+            background-color: rgb(249, 249, 249);
+            width: 100%;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .product-image img {
+            max-width: 90%;
+            max-height: 90%;
+        }
+        
+        .product-title {
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            min-height: 40px;
+        }
+        
+        .price-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+        
+    
+        
+        .current-price {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        
+        
+        @media (max-width: 768px) {
+            .products {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .products {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 2rem;
+            text-align: left;
+            padding: 0 1rem;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-section h3:after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 2px;
+            background-color: #f3c78e;
+            bottom: -5px;
+            left: 0;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section ul li a:hover {
+            color: #f3c78e;
+        }
+        
+        .copyright {
+            margin-top: 2rem;
+            border-top: 1px solid #555;
+            padding-top: 1rem;
+            color: #aaa;
+        }
+        
+        .hot-label {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: #ff6b6b;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-weight: bold;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            nav ul {
+                display: none;
+            }
+            
+            .hero {
+                height: 60vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">242 Perfume</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Giới thiệu.html">Giới thiệu</a></li>
+                <li><a href="contact.html">Liên hệ</a></li>
+                <li><a href="page1.html">Sản phẩm</a></li>
+                <li><a href="Tin tức.html">Tin tức</a></li>
+                <li><a href="SignUp_LogIn_Form.html">Tài khoản</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main class="main-content">
+        <section class="hero">
+           
+            
+            <div class="overlay"></div>
+            
+            <div class="image-slide active">
+                <img src="Images/Dior.jpg" alt="Bois Talisman, Dior">
+            </div>
+            <div class="image-slide">
+                <img src="Images/Chanel.jpeg" alt="Luxury Fragrance Slide 2">
+            </div>
+            <div class="image-slide">
+                <img src="Images/Gucci.jpeg" alt="Luxury Fragrance Slide 3">
+            </div>
+            <div class="image-slide">
+                <img src="Images/Versace.jpeg" alt="Luxury Fragrance Slide 4">
+            </div>
+            <div class="image-slide">
+                <img src="Images/Armaf.jpg" alt="Luxury Fragrance Slide 5">
+            </div>
+        </div>
+        
+        <div class="hero-content">
+            <h1>Discover Luxury Fragrance Collections</h1>
+            <p>Experience the artistry and craftsmanship of the world's most prestigious perfume houses</p>
+            <a href="index.html" class="btn">Khám phá ngay</a>
+        </div>
+            
+            <div class="navigation-dots">
+                <div class="dot active" data-index="0"></div>
+                <div class="dot" data-index="1"></div>
+                <div class="dot" data-index="2"></div>
+                <div class="dot" data-index="3"></div>
+                <div class="dot" data-index="4"></div>
+            </div>
+        </section>
+        
+        <section class="featured-brands">
+            <h2>SẢN PHẨM NỔI BẬT</h2>
+            
+            <div class="container">
+                <h1>BỘ SƯU TẬP MỚI</h1>
+                
+                <div class="products">
+                    <div class="product">
+                        <div class="product-image">
+                            <img src="images/Chanel Coco Mademoiselle L'Eau Privée.jpeg" alt="Nước Hoa Armaf CLUB DE NUIT">
+                        </div>
+                        <div class="product-title">
+                           Nước hoa Chanel Coco Mademoiselle L'Eau Privée
+                        </div>
+                        <div class="price-container">
+                            <span class="current-price">3.800.000đ - 6.000.000đ</span>
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="product">
+                        <div class="product-image">
+                            <img src="images/Dior Sauvage Elixir Intense.jpeg" alt="Nước Hoa Armaf UNIQ EFFECTS">
+                        </div>
+                        <div class="product-title">
+                            Nước Hoa Dior Sauvage Elixir Intense
+                        </div>
+                        <div class="price-container">
+                            <span class="current-price">3.900.000đ - 6.200.000đ</span>
+                        </div>
+                    </div>
+                    
+                    <div class="product">
+                        <div class="product-image">
+                            <img src="images/Gucci Flora Gorgeous Magnolia.jpeg" alt="Nước Hoa Armaf UNIQ OUD FOREVER">
+                        </div>
+                        <div class="product-title">
+                            Nước Hoa Gucci Flora Gorgeous Magnolia
+                        </div>
+                        <div class="price-container">
+                            <span class="current-price">2.800.000đ - 4.300.000đ</span>
+                        </div>
+                    </div>
+                    
+                    <div class="product">
+                        <div class="product-image">
+                            <img src="images/Tom Ford Ébène Fumé Collection.jpeg" alt="Nước Hoa MISS ARMAF ATTITUDE">
+                        </div>
+                        <div class="product-title">
+                            Nước Hoa Tom Ford Ébène Fumé Collection
+                        </div>
+                        <div class="price-container">
+                            <span class="current-price">6.500.000đ - 10.500.000đ</span>   
+                        </div>
+                    </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>Chúng tôi tuyển chọn những hương thơm tinh túy nhất từ khắp nơi trên thế giới, mang nghệ thuật nước hoa cao cấp đến với những khách hàng sành điệu.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li><a href="Giới thiệu.html">Giới thiệu</a></li>
+                    <li><a href="page1.html">Sản phẩm</a></li>
+                    <li><a href="Tin tức.html">Tin tức</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Customer Service</h3>
+                <ul>
+                    <li><a href="contact.html">Liên hệ</a></li>
+                    <li><a href="Chính sách đổi trả.html">Chính sách vận chuyển và đổi trả</a></li>
+                    <li><a href="FAQs.html">FAQs</a></li>
+                    <li><a href="Chính sách quyền riêng tư.html">Chính sách quyền riêng tư</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Newsletter</h3>
+                <p>Subscribe to receive updates on new arrivals and special promotions.</p>
+                <form>
+                    <input type="email" placeholder="Your email address" style="padding: 8px; width: 100%; margin-bottom: 10px;">
+                    <button type="submit" class="btn" style="width: 100%;">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>© 2025 Perfumery. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    // Auto-rotating image slides
+    const slides = document.querySelectorAll('.image-slide');
+    const dots = document.querySelectorAll('.dot');
+    let currentSlide = 0;
+    
+    function setSlide(index) {
+        // Remove active class from all slides and dots
+        slides.forEach(slide => slide.classList.remove('active'));
+        dots.forEach(dot => dot.classList.remove('active'));
+        
+        // Add active class to current slide and dot
+        slides[index].classList.add('active');
+        dots[index].classList.add('active');
+        
+        currentSlide = index;
+    }
+    
+    // Add click event to dots
+    dots.forEach(dot => {
+        dot.addEventListener('click', function() {
+            const slideIndex = this.getAttribute('data-index');
+            setSlide(parseInt(slideIndex));
+        });
+    });
+    
+    // Auto-rotate slides
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        setSlide(currentSlide);
+    }
+    
+    // Change slide every 6 seconds
+    setInterval(nextSlide, 6000);
+});
+    </script>
+</body>
+</html>

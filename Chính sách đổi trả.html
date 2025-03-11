@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipping & Returns - 242 Perfume</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: #F06060;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        /* Main Content Styles */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #333;
+        }
+        
+        .shipping-section, .returns-section {
+            margin-bottom: 40px;
+            background-color: #f9f9f9;
+            padding: 25px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        h2 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #F06060;
+            border-bottom: 2px solid #F06060;
+            padding-bottom: 10px;
+        }
+        
+        p, ul {
+            margin-bottom: 15px;
+        }
+        
+        ul {
+            padding-left: 20px;
+        }
+        
+        .info-card {
+            background-color: #fff;
+            border-left: 4px solid #F06060;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .info-card h3 {
+            color: #F06060;
+            margin-bottom: 10px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #f2f2f2;
+        }
+        .social-icons {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            background-color: #e74c3c;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            text-decoration: none;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            transition: transform 0.2s, background-color 0.2s;
+        }
+        
+        .social-icon:hover {
+            transform: scale(1.1);
+        }
+        
+        .social-icon.phone {
+            background-color: #eccecb;
+        }
+        
+        .social-icon.zalo {
+            background-color: #0068ff;
+        }
+        
+        /* Footer Styles */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 40px 20px;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 20px;
+            padding-right: 20px;
+        }
+        
+        .footer-section h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-section h3:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background-color: #F06060;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 8px;
+        }
+        
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section ul li a:hover {
+            color: #F06060;
+        }
+        
+        .newsletter input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+        }
+        
+        .newsletter button {
+            width: 100%;
+            padding: 10px;
+            background-color: #F06060;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+                justify-content: center;
+            }
+            
+            .footer-section {
+                flex: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <a href="#" class="logo">242 Perfume</a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Trang chủ</a></li>
+                <li><a href="Giới thiệu.html">Giới thiệu</a></li>
+                <li><a href="contact.html">Liên hệ</a></li>
+                <li><a href="index.html">Sản phẩm</a></li>
+                <li><a href="Tin tức.html">Tin tức</a></li>
+                <li><a href="SignUp_LogIn_Form.html">Tài khoản</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- Main Content -->
+    <div class="container">
+        <h1>CHÍNH SÁCH VẬN CHUYỂN & ĐỔI TRẢ</h1>
+        
+        <div class="shipping-section">
+            <h2>CHÍNH SÁCH VẬN CHUYỂN</h2>
+            
+            <p>Tại 242 Perfume, chúng tôi cam kết đảm bảo trải nghiệm mua sắm trực tuyến thuận tiện và hiệu quả nhất cho quý khách hàng. Chúng tôi hợp tác với các đơn vị vận chuyển uy tín nhằm đảm bảo sản phẩm của bạn được giao một cách an toàn và đúng hẹn.</p>
+            
+            <div class="info-card">
+                <h3>Thời Gian Xử Lý Đơn Hàng</h3>
+                <p>• Đơn hàng sẽ được xử lý trong vòng 24 giờ sau khi nhận được thanh toán (không bao gồm ngày lễ và cuối tuần).</p>
+                <p>• Quý khách sẽ nhận được email xác nhận khi đơn hàng đã được xử lý và bàn giao cho đơn vị vận chuyển.</p>
+            </div>
+            
+            <h3>Phí Vận Chuyển & Thời Gian Giao Hàng</h3>
+            <table>
+                <tr>
+                    <th>Khu Vực</th>
+                    <th>Phí Vận Chuyển</th>
+                    <th>Thời Gian Giao Hàng</th>
+                </tr>
+                <tr>
+                    <td>Nội thành Hà Nội & TP.HCM</td>
+                    <td>20,000₫</td>
+                    <td>1-2 ngày làm việc</td>
+                </tr>
+                <tr>
+                    <td>Các tỉnh thành khác</td>
+                    <td>30,000₫ - 40,000₫</td>
+                    <td>2-5 ngày làm việc</td>
+                </tr>
+                <tr>
+                    <td>Khu vực miền núi, hải đảo</td>
+                    <td>50,000₫ - 70,000₫</td>
+                    <td>5-7 ngày làm việc</td>
+                </tr>
+            </table>
+            
+            <p><strong>Lưu ý:</strong> Đơn hàng có giá trị từ 1,500,000₫ trở lên sẽ được MIỄN PHÍ vận chuyển toàn quốc.</p>
+            
+            <h3>Theo Dõi Đơn Hàng</h3>
+            <p>Khi đơn hàng được giao cho đơn vị vận chuyển, quý khách sẽ nhận được mã vận đơn qua email hoặc tin nhắn. Quý khách có thể sử dụng mã này để theo dõi trạng thái đơn hàng trên website của chúng tôi hoặc trực tiếp trên website của đơn vị vận chuyển.</p>
+        </div>
+        
+        <div class="returns-section">
+            <h2>CHÍNH SÁCH ĐỔI TRẢ</h2>
+            
+            <p>242 Perfume cam kết đảm bảo sự hài lòng của quý khách với mọi sản phẩm mua từ cửa hàng chúng tôi. Chính sách đổi trả được thiết kế để bảo vệ quyền lợi của khách hàng trong trường hợp sản phẩm không đạt yêu cầu.</p>
+            
+            <div class="info-card">
+                <h3>Điều Kiện Đổi Trả</h3>
+                <ul>
+                    <li>Thời hạn đổi trả: trong vòng 07 ngày kể từ ngày nhận hàng.</li>
+                    <li>Sản phẩm phải còn nguyên tem, seal, hộp đựng nguyên vẹn.</li>
+                    <li>Sản phẩm chưa qua sử dụng, còn nguyên trạng như khi giao hàng.</li>
+                    <li>Có hóa đơn mua hàng hoặc số đơn hàng.</li>
+                </ul>
+            </div>
+            
+            <h3>Các Trường Hợp Được Đổi Trả</h3>
+            <ul>
+                <li>Sản phẩm bị lỗi do nhà sản xuất (chai xịt bị hỏng, mùi hương không đúng mô tả).</li>
+                <li>Sản phẩm không đúng như đã đặt hàng (sai mùi hương, dung tích, thương hiệu).</li>
+                <li>Sản phẩm bị hư hỏng trong quá trình vận chuyển.</li>
+                <li>Sản phẩm hết hạn sử dụng hoặc gần hết hạn sử dụng (dưới 6 tháng).</li>
+            </ul>
+            
+            <h3>Quy Trình Đổi Trả</h3>
+            <ol>
+                <li>Liên hệ với bộ phận Chăm sóc Khách hàng qua hotline: <strong>0123.456.789</strong> hoặc email: <strong>contact@242perfume.com</strong> để thông báo về việc đổi/trả.</li>
+                <li>Cung cấp thông tin đơn hàng, mô tả vấn đề gặp phải, và hình ảnh sản phẩm (nếu có).</li>
+                <li>Bộ phận CSKH sẽ hướng dẫn quy trình đổi/trả và cung cấp địa chỉ gửi hàng (nếu cần).</li>
+                <li>Sau khi nhận được sản phẩm trả lại, chúng tôi sẽ kiểm tra và xử lý trong vòng 3-5 ngày làm việc.</li>
+            </ol>
+            
+            <h3>Chính Sách Hoàn Tiền</h3>
+            <p>Đối với các trường hợp đổi trả được chấp nhận, quý khách có thể lựa chọn một trong các phương thức sau:</p>
+            <ul>
+                <li>Đổi sang sản phẩm khác cùng giá trị hoặc cao hơn (thanh toán thêm phần chênh lệch).</li>
+                <li>Hoàn tiền qua tài khoản ngân hàng (thời gian hoàn tiền từ 5-7 ngày làm việc).</li>
+                <li>Nhận mã giảm giá có giá trị tương đương để sử dụng cho lần mua hàng tiếp theo.</li>
+            </ul>
+            
+            <p><strong>Lưu ý:</strong> Phí vận chuyển cho việc đổi/trả sẽ do khách hàng chi trả, trừ trường hợp sản phẩm bị lỗi do nhà sản xuất hoặc quá trình vận chuyển.</p>
+            
+            <div class="info-card">
+                <h3>Không Áp Dụng Đổi Trả</h3>
+                <ul>
+                    <li>Sản phẩm đã qua sử dụng (chai đã mở, đã xịt).</li>
+                    <li>Sản phẩm trong chương trình khuyến mãi, giảm giá đặc biệt (trừ trường hợp lỗi do nhà sản xuất).</li>
+                    <li>Quý khách đổi ý về mùi hương sau khi đã sử dụng sản phẩm.</li>
+                    <li>Sản phẩm quà tặng, mẫu thử.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <p>Nếu quý khách có bất kỳ thắc mắc nào về chính sách vận chuyển hoặc đổi trả, vui lòng liên hệ với chúng tôi qua hotline <strong>0123.456.789</strong> hoặc email <strong>support@242perfume.com</strong>. Đội ngũ 242 Perfume luôn sẵn sàng hỗ trợ quý khách.</p>
+    </div>
+    <div class="social-icons">
+        <a href="#" class="social-icon phone">📞</a>
+        <a href="#" class="social-icon zalo">Z</a>
+    </div>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>Chúng tôi tuyển chọn những hương thơm tinh túy nhất từ khắp nơi trên thế giới, mang nghệ thuật nước hoa cao cấp đến với những khách hàng sành điệu. </p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li><a href="Giới thiệu.html">Giới thiệu</a></li>
+                    <li><a href="page1.html">Sản phẩm</a></li>
+                    <li><a href="Tin tức.html">Tin tức</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Customer Service</h3>
+                <ul>
+                    <li><a href="contact.html">Liên hệ</a></li>
+                    <li><a href="Chính sách đổi trả.html">Chính sách vận chuyển và đổi trả</a></li>
+                    <li><a href="FAQs.html">FAQs</a></li>
+                    <li><a href="Chính sách quyền riêng tư.html">Chính sách quyền riêng tư</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section newsletter">
+                <h3>Newsletter</h3>
+                <p>Subscribe to receive updates on new arrivals and special promotions.</p>
+                <input type="email" placeholder="Your email address">
+                <button>Subscribe</button>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

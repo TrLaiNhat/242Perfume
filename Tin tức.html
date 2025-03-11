@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tin Tức Nước Hoa</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+       /* Header Styles */
+       header {
+            background-color: #F06060;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .content-wrapper {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .main-content {
+            flex: 2;
+        }
+        
+        .sidebar {
+            flex: 1;
+        }
+        
+       .news-item {
+  display: flex;
+  
+  color: white;
+  margin-bottom: 20px;
+  overflow: hidden;
+  max-width: 1100px;
+}
+
+.news-item img {
+  width: 45%;
+  height: auto;
+  object-fit: cover;
+}
+
+.news-text {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 55%;
+  color: #444;
+}
+
+.news-title {
+  font-size: 22px;
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 15px;
+  line-height: 1.3;
+  color: #333;
+}
+
+.news-meta {
+  display: flex;
+  gap: 10px;
+  font-size: 14px;
+  color: #161515;
+  margin-bottom: 15px;
+}
+
+.news-excerpt {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #151414;
+  margin-bottom: 15px;
+}
+
+.news-excerpt p {
+  margin: 0;
+}
+
+.read-more {
+  display: inline-block;
+  background-color: #000;
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  font-size: 14px;
+  align-self: flex-start;
+  border: none;
+  text-transform: uppercase;
+}
+
+/* For responsive design */
+@media (max-width: 768px) {
+  .news-item {
+    flex-direction: column;
+  }
+  
+  .news-item img, .news-text {
+    width: 100%;
+  }
+}
+        .read-more:hover {
+            background-color: #444;
+        }
+        
+        .sidebar-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            border-bottom: 2px solid #222;
+            padding-bottom: 10px;
+        }
+        
+        .sidebar-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+        
+        .sidebar-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .sidebar-item img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+        
+        .sidebar-item-text {
+            flex: 1;
+        }
+        
+        .sidebar-item-title {
+            font-size: 16px;
+            margin-bottom: 5px;
+            font-weight: bold;
+            line-height: 1.3;
+        }
+        
+        .social-icons {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            background-color: #e74c3c;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            text-decoration: none;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            transition: transform 0.2s, background-color 0.2s;
+        }
+        
+        .social-icon:hover {
+            transform: scale(1.1);
+        }
+        
+        .social-icon.phone {
+            background-color: #e8c1bc;
+        }
+        
+        .social-icon.zalo {
+            background-color: #0068ff;
+        }
+        
+        .promo-banner {
+            background-color: #ffd700;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 30px;
+            text-align: center;
+            font-weight: bold;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+         /* Footer */
+         footer {
+            background-color: #333;
+            color: white;
+            padding: 40px 20px;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-section h3:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: #eb6464;
+        }
+        
+        .footer-section p {
+            color: #bbb;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section ul li a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section ul li a:hover {
+            color: white;
+        }
+        
+        .newsletter input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+        }
+        
+        .newsletter button {
+            width: 100%;
+            padding: 10px;
+            background-color: #eb6464;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cta-button {
+            display: block;
+            background-color: #FFD700;
+            color: #333;
+            text-align: center;
+            padding: 15px;
+            margin: 30px auto;
+            font-weight: bold;
+            border-radius: 5px;
+            max-width: 500px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+            <div class="logo">242 Perfume</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li><a href="Giới thiệu.html">Giới thiệu</a></li>
+                    <li><a href="contact.html">Liên hệ</a></li>
+                    <li><a href="page1.html">Sản phẩm</a></li>
+                    <li><a href="Tin tức.html">Tin tức</a></li>
+                    <li><a href="SignUp_LogIn_Form.html">Tài khoản</a></li>
+                </ul>
+            </nav>
+    </header>
+    
+    <div class="container">
+        <div class="content-wrapper">
+            <div class="main-content">
+                <div class="news-item">
+                    <img src="Images/Lạc vào vườn hoa.webp" alt="ARMAF Floral Collection">
+                    <div class="news-text">
+                        <h2 class="news-title">LẠC VÀO VƯỜN HOA CỦA ARMAF – SỰ THANH LỊCH VÀ CUỐN HÚT TỪ NHÓM HƯƠNG FLORAL</h2>
+                        <div class="news-meta">
+                            <span>📄 Thư</span>
+                            <span>⏱️ 4 phút đọc</span>
+                        </div>
+                        <div class="news-excerpt">
+                            <p>Nhóm hương Floral (Hoa cỏ) là một trong những nhóm hương lâu đời và phổ biến nhất trong thế giới nước hoa. Với sự đa dạng...</p>
+                        </div>
+                        <a href="#" class="read-more">ĐỌC TIẾP</a>
+                    </div>
+                </div>
+                
+                <div class="news-item">
+                    <img src="Images/Dior-Miss-Dior-Blooming-Bouquet-Eau-de-Toilette-3.jpg" alt="DIOR Floral Collection">
+                    <div class="news-text">
+                        <h2 class="news-title">BỘ SƯU TẬP MISS DIOR BLOOMING BOUQUET – HƯƠNG THƠM TINH TẾ CỦA MÙA XUÂN MỚI</h2>
+                        <div class="news-meta">
+                            <span>📄 Thư</span>
+                            <span>⏱️ 4 phút đọc</span>
+                        </div>
+                        <div class="news-excerpt">
+                            <p>Dior vừa cho ra mắt phiên bản mới từ dòng Miss Dior huyền thoại với hương thơm tươi mát, nhẹ nhàng từ hoa mẫu đơn và hoa hồng Damascus. Với sự thanh lịch...</p>
+                        </div>
+                        <a href="#" class="read-more">ĐỌC TIẾP</a>
+                    </div>
+                 </div>
+                
+                
+                 <div class="news-item">
+                    <img src="Images/Gucci Beauty.jpeg" alt="GUCCI GUILTY SPIRIT">
+                    <div class="news-text">
+                        <h2 class="news-title">GUCCI RA MẮT GUILTY SPIRIT – SỰ PHÁ CẢ VÀ CUỐN HÚT</h2>
+                        <div class="news-meta">
+                            <span>📄 Tin tức</span>
+                            <span>⏱️ 5 phút đọc</span>
+                        </div>
+                        <div class="news-excerpt">
+                            <p>Gucci vừa ra mắt dòng nước hoa mới "Guilty Spirit", đánh dấu bước tiến đột phá với hương thơm độc đáo và đầy cuốn hút. Sản phẩm này được chế tác từ những thành phần quý hiếm, mang đến cảm giác phá cách, hiện đại và đậm chất cá tính, khẳng định đẳng cấp của thương hiệu.</p>
+                        </div>
+                        <a href="#" class="read-more">ĐỌC TIẾP</a>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="sidebar">
+                <h3 class="sidebar-title">TIN NỔI BẬT</h3>
+                
+                <div class="sidebar-item">
+                    <img src="Images/Lạc vào vườn hoa.webp" alt="ARMAF Floral">
+                    <div class="sidebar-item-text">
+                        <h4 class="sidebar-item-title">Lạc vào vườn hoa của ARMAF – Sự thanh lịch và cuốn hút từ nhóm hương Floral</h4>
+                    </div>
+                </div>
+                
+                <div class="sidebar-item">
+                    <img src="Images/Dior-Miss-Dior-Blooming-Bouquet-Eau-de-Toilette-3.jpg" alt="SHK Collection">
+                    <div class="sidebar-item-text">
+                        <h4 class="sidebar-item-title">BỘ SƯU TẬP MISS DIOR BLOOMING BOUQUET – HƯƠNG THƠM TINH TẾ CỦA MÙA XUÂN MỚI</h4>
+                    </div>
+                </div>
+                
+                <div class="sidebar-item">
+                    <img src="Images/Gucci Beauty.jpeg" alt="Scent of Love">
+                    <div class="sidebar-item-text">
+                        <h4 class="sidebar-item-title">GUCCI RA MẮT GUILTY SPIRIT – SỰ PHÁ CẢ VÀ CUỐN HÚT</h4>
+                    </div>
+                </div>
+                
+                
+                <button>
+                <div class="promo-banner">
+                    Đăng ký nhận thông báo về các bài viết mới nhất từ 242 Perfume!
+                </div>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="social-icons">
+        <a href="#" class="social-icon phone">📞</a>
+        <a href="#" class="social-icon zalo">Z</a>
+    </div>
+     
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>Chúng tôi tuyển chọn những hương thơm tinh túy nhất từ khắp nơi trên thế giới, mang nghệ thuật nước hoa cao cấp đến với những khách hàng sành điệu.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li><a href="Giới thiệu.html">Giới thiệu</a></li>
+                    <li><a href="page1.html">Sản phẩm</a></li>
+                    <li><a href="Tin tức.html">Tin tức</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Customer Service</h3>
+                <ul>
+                    <li><a href="contact.html">Liên hệ</a></li>
+                    <li><a href="Chính sách đổi trả.html">Chính sách vận chuyển và đổi trả</a></li>
+                    <li><a href="FAQs.html">FAQs</a></li>
+                    <li><a href="Chính sách quyền riêng tư.html">Chính sách quyền riêng tư</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Newsletter</h3>
+                <p>Subscribe to receive updates on new arrivals and special promotions.</p>
+                <div class="newsletter">
+                    <input type="email" placeholder="Your email address">
+                    <button>Subscribe</button>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

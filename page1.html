@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>242 Perfume Chạm đến sự tinh tế </title>
+    <link rel="stylesheet" href="css/page.css">
+</head>
+<body>
+    <header>
+         <!-- Thanh điều hướng -->
+            <div class="container">
+                <nav class="navbar">
+                    <div class="logo">242 Perfume</div>
+                    <ul class="nav-links">
+                        <li><a href="index.html">Trang chủ</a></li>
+                        <li><a href="contact.html">Liên hệ</a></li>
+                        <li><a href="SignUp_LogIn_Form.html">Tài khoản</a></li>
+                        <li>
+                            <a href="cart.html" class="cart" id="cart-icon">
+                                Giỏ hàng <span class="cart-count">0</span>
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                            <div class="dropdown-toggle" id="userDropdown">
+                                <div class="avatar">
+                                    <img src="images/Lại Nhật Trường.jpg" alt="Admin">
+                                </div>
+                                <span class="username">Lại Nhật Trường</span>
+                                <div class="dropdown-icon"></div>
+                            </div>
+                            <div class="dropdown-menu" id="dropdownMenu">
+                                <a href="#" class="dropdown-item">Tài Khoản Của Tôi</a>
+                                <a href="#" class="dropdown-item">Đơn Mua</a>
+                                <a href="dashboard.html" class="dropdown-item">Quản Lý</a>
+                                <a href="#" class="dropdown-item">Đăng Xuất</a>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+                
+                <!-- Thanh tìm kiếm -->
+                <div class="search-bar">  
+                    <input type="text" name="query" class="search-input" placeholder="Tìm kiếm nước hoa...">
+                    <button class="search-button">🔍 Tìm kiếm</button>
+                </div>
+                
+                <!-- Kết quả tìm kiếm -->
+                <div id="search-results"></div>
+            </div>
+        </header>
+
+<div class="container">
+    <!-- Bộ lọc bên trái -->
+    <div class="container">
+        <main>
+            <aside class="sidebar">
+                <div class="filter-section">
+                    <h3>Sắp xếp theo</h3>
+                    <select id="sort-by" style="width: 100%; padding: 8px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 3px;">
+                        
+                        <option value="product-price-low">Giá: Thấp đến cao</option>
+                        <option value="product-price-high">Giá: Cao đến thấp</option>
+                        <option value="product-rating">Độ phổ biến</option>
+                    </select>
+                </div>
+                
+               
+                
+                
+                <div class="filter-section">
+                    <h3>Giá (VNĐ)</h3>
+                    <div class="price-range">
+                        <input type="range" min="0" max="10000000" step="100000">
+                        <div style="display: flex; justify-content: space-between; margin-top: 5px;">
+                            <span>0đ</span>
+                            <span>10.000.000đ</span>
+                        </div>
+                    </div>
+                </div>
+                
+            </aside>
+        
+<!--chatbot-->    
+<div id="chatbot-icon">
+    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTMgOWw5IDYgOS02di03YTItMiAwIDAgMC0yLTJoLTE0YTItMiAwIDAgMC0yIDJ6Ij48L3BhdGg+PHBvbHlsaW5lIHBvaW50cz0iOSAxMiAxIDE2LjUgMSAyMiI+PC9wb2x5bGluZT48bGluZSB4MT0iMjMiIHkxPSIxNi41IiB4Mj0iMTUiIHkyPSIxMiI+PC9saW5lPjwvc3ZnPg==" alt="Chat Icon">
+</div>
+
+<div id="chatbot-panel">
+    <div id="chat-header">
+        <h3>242 Perfume - Hỗ trợ</h3>
+        <span id="close-chat" style="cursor: pointer;">✖</span>
+    </div>
+    <div id="chat-messages">
+        <p>Xin chào! Bạn cần hỗ trợ điều gì? </p>
+    </div>
+    <div id="chat-input-area">
+        <input type="text" id="chat-input" placeholder="Nhập câu hỏi...">
+        <button id="send-btn">Gửi</button>
+    </div>
+</div>
+
+    
+    <!-- Danh sách sản phẩm bên phải -->
+
+    <section class="product">
+        <div class="product-grid">
+
+                <!--Nước Hoa Nam Dior Sauvage Eau Forte Parfum 10ml (id=1)-->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/product1.webp" alt="Nước Hoa Nam Dior Sauvage Eau Forte Parfum 10ml">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">Nước Hoa Nam Dior Sauvage Eau Forte Parfum 10ml</div>
+                        <div class="product-brand">Dior</div>
+                        <div class="product-price">Giá: 600.000 đ</div>
+                        <p class="product-rating">Đánh giá: ⭐⭐⭐⭐⭐ (125 đánh giá)</p>
+                        <button class="add-to-cart" onclick="addToCart()">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>   
+               
+                <!--Nước Hoa Unisex Fragrance World Maison Vaporisateur Barakkat Rouge 540 Extrait De Parfum 100ml (id=2)-->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/product2.webp" alt="Nước Hoa Unisex Fragrance World Maison Vaporisateur Barakkat Rouge 540 Extrait De Parfum 100ml">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name"> Nước Hoa Unisex Fragrance World Maison Vaporisateur Barakkat Rouge 540 Extrait De Parfum 100ml</div>
+                        <div class="product-brand">Fragrance World</div>
+                        <div class="product-price">Giá: 490.000 đ</div>
+                        <p class="product-rating">Đánh giá: ⭐⭐⭐⭐⭐ (380 đánh giá)</p>
+                        <button class="add-to-cart" onclick="addToCart()">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+
+                <!-- Nước Hoa Nam Armaf Club De Nuit Intense Man Eau De Toilette 105ml (id=3)-->    
+                <div class="product-card">
+                    <div class="product-image"> 
+                        <img src="images/product3.webp" alt="Nước Hoa Nam Armaf Club De Nuit Intense Man Eau De Toilette 105ml">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name"> Nước Hoa Nam Armaf Club De Nuit Intense Man Eau De Toilette 105ml</div>
+                        <div class="product-brand"> Armaf </div>
+                        <div class="product-price">Giá: 1.800.000 đ</div>
+                        <p class="product-rating">Đánh giá: ⭐⭐⭐⭐⭐ (1250 đánh giá)</p>
+                        <button class="add-to-cart" onclick="addToCart()">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+
+                <!-- Nước Hoa Calvin Klein (CK) CK One Cho Cả Nam Và Nữ 100ml (id=4)-->
+                <div class="product-card">
+                    <div class="product-image"> 
+                        <img src="images/product4.webp" alt="Nước Hoa Calvin Klein (CK) CK One Cho Cả Nam Và Nữ 100ml">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">Nước Hoa Calvin Klein (CK) CK One Cho Cả Nam Và Nữ 100ml</div>
+                        <div class="product-brand">Calvin Klein (CK) </div>
+                        <div class="product-price">Giá: 1.120.000 đ</div>
+                        <p class="product-rating">Đánh giá: ⭐⭐⭐⭐⭐ (1250 đánh giá)</p>
+                        <button class="add-to-cart" onclick="addToCart()">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+
+                <!-- Nước Hoa Nữ MontBlanc Signature Eau De Parfum 30ml (id=5)-->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/product5.webp" alt="Nước Hoa Nữ MontBlanc Signature Eau De Parfum 30ml">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">Nước Hoa Nữ MontBlanc Signature Eau De Parfum 30ml</div>
+                        <div class="product-brand">MontBlanc</div>
+                        <div class="product-price">Giá: 1.250.000 đ</div>
+                        <p class="product-rating">Đánh giá: ⭐⭐⭐⭐⭐ (1250 đánh giá)</p>
+                        <button class="add-to-cart" onclick="addToCart()">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+
+                <!--Nước Hoa Nữ Gucci Flora Gorgeous Orchid EDP 50ml (id=6)-->   
+                <div class="product-card"> 
+                    <div class="product-image">
+                        <img src="images/product6.webp" alt="Nước Hoa Nữ Gucci Flora Gorgeous Orchid EDP 50ml">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">Nước Hoa Nữ Gucci Flora Gorgeous Orchid EDP 50ml</div>
+                        <div class="product-brand">Gucci</div>
+                        <div class="product-price">Giá: 2.800.000 đ</div>
+                        <p class="product-rating">Đánh giá: ⭐⭐⭐⭐⭐ (1250 đánh giá)</p>
+                        <button class="add-to-cart" onclick="addToCart()">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+
+                <!--Nước Hoa Nữ Lancôme La Vie Est Belle L'Elixir (id=7)-->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/product7.webp" alt="Nước Hoa Nữ Lancôme La Vie Est Belle L'Elixir">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">Nước Hoa Nữ Lancôme La Vie Est Belle L'Elixir</div>
+                        <div class="product-brand">Lancôme</div>
+                        <div class="product-price">Giá: 650.000 đ</div>
+                        <p class="product-rating">Đánh giá: ⭐⭐⭐⭐⭐ (1250 đánh giá)</p>
+                        <button class="add-to-cart" onclick="addToCart()">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+
+                <!--Nước Hoa Nam Versace Eros Man EDT 5ml (id=8)-->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/product8.webp" alt="Nước Hoa Nam Versace Eros Man EDT 5ml">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">Nước Hoa Nam Versace Eros Man EDT 5ml</div>
+                        <div class="product-brand">Versace</div>
+                        <div class="product-price">Giá: 400.000 đ</div>
+                        <p class="product-rating">Đánh giá: ⭐⭐⭐⭐⭐ (1250 đánh giá)</p>
+                        <button class="add-to-cart" onclick="addToCart()">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+
+                <!--Nước Hoa Calvin Klein CK Be EDT Màu Đen 100ml (id=9)-->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/product9.webp" alt="Nước Hoa Calvin Klein CK Be EDT Màu Đen 100ml">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">Nước Hoa Calvin Klein CK Be EDT Màu Đen 100ml</div>
+                        <div class="product-brand">Nautica</div>
+                        <div class="product-price">Giá: 990.000 đ</div>
+                        <p class="product-rating">Đánh giá: ⭐⭐⭐⭐⭐ (1250 đánh giá)</p>
+                        <button class="add-to-cart" onclick="addToCart()">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+
+                <!--Nước Hoa Nam Nautica Voyage EDT 100ml (id=10)-->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/product10.webp" alt="Nước Hoa Nam Nautica Voyage EDT 100ml">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">Nước Hoa Nam Nautica Voyage EDT 100ml</div>
+                        <div class="product-brand">Mautica</div>
+                        <div class="product-price">Giá: 1.050.000 đ</div> 
+                        <p class="product-rating">Đánh giá: ⭐⭐⭐⭐⭐ (1250 đánh giá)</p>
+                        <button class="add-to-cart" onclick="addToCart()">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+
+                <!-- Nước Hoa Nữ Kenzo L'eau Par Pour Femme Eau De Toilette 100ml (id=11)-->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/product11.webp" alt="Nước Hoa Nữ Kenzo L'eau Par Pour Femme Eau De Toilette 100ml">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name"> Nước Hoa Nữ Kenzo L'eau Par Pour Femme Eau De Toilette 100ml</div>
+                        <div class="product-brand">Kenzo</div>
+                        <div class="product-price">Giá: 1.800.000 đ</div>
+                        <p class="product-rating">Đánh giá: ⭐⭐⭐⭐⭐ (1250 đánh giá)</p>
+                        <button class="add-to-cart" onclick="addToCart()">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+
+                <!-- Nước Hoa Unisex The Merchant Of Venice Blue Tea Eau De Parfum 100ml (id=12)-->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/product12.webp" alt="Nước Hoa Unisex The Merchant Of Venice Blue Tea Eau De Parfum 100ml">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name"> Nước Hoa Unisex The Merchant Of Venice Blue Tea Eau De Parfum 100ml</div>
+                        <div class="product-brand">The Merchant Of Venice</div>
+                        <div class="product-price">Giá: 4.800.000 đ</div>
+                        <p class="product-rating">Đánh giá: ⭐⭐⭐⭐⭐ (1250 đánh giá)</p>
+                        <button class="add-to-cart" onclick="addToCart()">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+
+                <!--Nước Hoa Nam Hugo Boss Hugo Man EDT 125ml (id=13)-->
+                <div class="product-card"> 
+                    <div class="product-image">
+                        <img src="images/product13.webp" alt="Nước Hoa Nam Hugo Boss Hugo Man EDT 125ml">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">Nước Hoa Nam Hugo Boss Hugo Man EDT 125ml</div>
+                        <div class="product-brand">Hugo</div>
+                        <div class="product-price">Giá: 1.750.000 đ</div>
+                        <p class="product-rating">Đánh giá: ⭐⭐⭐⭐⭐ (1250 đánh giá)</p>
+                        <button class="add-to-cart" onclick="addToCart()">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+
+                <!--Nước Hoa Unisex Xerjoff Tony Iommi Monkey Special EDP 50ml (id=14)-->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/product14.webp" alt="Nước Hoa Unisex Xerjoff Tony Iommi Monkey Special EDP 50ml">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">Nước Hoa Unisex Xerjoff Tony Iommi Monkey Special EDP 50ml</div>
+                        <div class="product-brand">Xerjoff</div>
+                        <div class="product-price">Giá: 6.900.000 đ</div>
+                        <p class="product-rating">Đánh giá: ⭐⭐⭐⭐⭐ (1250 đánh giá)</p>
+                        <button class="add-to-cart" onclick="addToCart()">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+
+                <!--  Set Nước Hoa Nữ Yves Saint Laurent YSL Black Opium EDP (90ml + 10ml + Mini Mascara) (id=15)-->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/product15.webp" alt="Set Nước Hoa Nữ Yves Saint Laurent YSL Black Opium EDP (90ml + 10ml + Mini Mascara)">
+                    </div>
+                    <div cllass="product-info">
+                        <div class="product-name"> Set Nước Hoa Nữ Yves Saint Laurent YSL Black Opium EDP (90ml + 10ml + Mini Mascara)</div>
+                        <div class="product-brand">YSL</div>
+                        <div class="product-price">Giá: 3.900.000 đ</div>
+                        <p class="product-rating">Đánh giá: ⭐⭐⭐⭐⭐ (1250 đánh giá)</p>
+                        <button class="add-to-cart" onclick="addToCart()">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+
+                <!--Nước Hoa Nữ Dior Hypnotic Poison EDT 100ml (id=16)-->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/product16.webp" alt="Nước Hoa Nữ Dior Hypnotic Poison EDT 100ml">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">Nước Hoa Nữ Dior Hypnotic Poison EDT 100ml</div>
+                        <div class="product-brand">Dior</div>
+                        <div class="product-price">Giá: 3.900.000 đ</div>
+                        <p class="product-rating">Đánh giá: ⭐⭐⭐⭐⭐ (1250 đánh giá)</p>
+                        <button class="add-to-cart" onclick="addToCart()">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+
+                <!--Set Nước Hoa Nữ YSL Yves Saint Laurent Black Opium EDP Gift Set 3 Món (id=17)-->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/product17.webp" alt="Set Nước Hoa Nữ YSL Yves Saint Laurent Black Opium EDP Gift Set 3 Món">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">Set Nước Hoa Nữ YSL Yves Saint Laurent Black Opium EDP Gift Set 3 Món</div>
+                        <div class="product-brand">YSL</div>
+                        <div class="product-price">Giá: 3.800.000 đ</div>
+                        <p class="product-rating">Đánh giá: ⭐⭐⭐⭐⭐ (1250 đánh giá)</p>
+                        <button class="add-to-cart" onclick="addToCart()">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+
+                <!-- Nước Hoa Nam Calvin Klein CK One Shock For Him EDT 100ml (id=18)-->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/product18.webp" alt="Nước Hoa Nam Calvin Klein CK One Shock For Him EDT 100ml">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">Nước Hoa Nam Calvin Klein CK One Shock For Him EDT 100ml</div>
+                        <div class="product-brand">Calvin Klein (CK) </div>
+                        <div class="product-price">Giá: 1.250.000 đ</div>
+                        <p class="product-rating">Đánh giá: ⭐⭐⭐⭐⭐ (1250 đánh giá)</p>
+                        <button class="add-to-cart" onclick="addToCart()">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+
+                <!-- Nước Hoa Nữ Prada Paradoxe Vitual Flower Eau De Parfum 90ml (id=19)-->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/product19.webp" alt="Nước Hoa Nữ Prada Paradoxe Virtual Flower Eau De Parfum 90ml">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name"> Nước Hoa Nữ Prada Paradoxe Virtual Flower Eau De Parfum 90ml</div>
+                        <div class="product-brand">Prada</div>
+                        <div class="product-price">Giá: 3.500.000 đ</div>
+                        <p class="product-rating">Đánh giá: ⭐⭐⭐⭐⭐ (1250 đánh giá)</p>
+                        <button class="add-to-cart" onclick="addToCart()">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+
+                <!--   Nước Hoa Nữ Versace Bright Crystal Absolu EDP 90ml (id=20)-->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/product20.webp" alt="Nước Hoa Nữ Versace Bright Crystal Absolu EDP 90ml">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">Nước Hoa Nữ Versace Bright Crystal Absolu EDP 90ml</div>
+                        <div class="product-brand">Versace</div>
+                        <div class="product-price">Giá: 2.250.000 đ</div>
+                        <p class="product-rating">Đánh giá: ⭐⭐⭐⭐⭐ (1250 đánh giá)</p>
+                        <button class="add-to-cart" onclick="addToCart()">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+                
+                <!--Nước Hoa Nữ Miss Dior Eau De Parfum 100ml-2021 (id=21)-->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/product21.webp" alt="Nước Hoa Nữ Miss Dior Eau De Parfum 100ml - 2021">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">Nước Hoa Nữ Miss Dior Eau De Parfum 100ml-2021</div>
+                        <div class="product-brand">Dior</div>
+                        <div class="product-price">Giá: 3.600.000 đ</div>
+                        <p class="product-rating">Đánh giá: ⭐⭐⭐⭐⭐ (1250 đánh giá)</p>
+                        <button class="add-to-cart" onclick="addToCart()">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+
+                <!--  Nước Hoa Nữ YSL Yves Saint Laurent Libre Le Parfum 90ml (id=22)-->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/product22.webp" alt="Nước Hoa Nữ YSL Yves Saint Laurent Libre Le Parfum 90ml">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">  Nước Hoa Nữ YSL Yves Saint Laurent Libre Le Parfum 90ml </div>
+                        <div class="product-brand">YSL</div>
+                        <div class="product-price">Giá: 3.600.000 đ</div>
+                        <p class="product-rating">Đánh giá: ⭐⭐⭐⭐⭐ (1250 đánh giá)</p>
+                        <button class="add-to-cart" onclick="addToCart()">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+
+                <!--Nước Hoa Nữ Armaf La Rosa EDP 100ml (id=23)-->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/product23.webp" alt="Nước Hoa Nữ Armaf La Rosa EDP 100ml">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">Nước Hoa Nữ Armaf La Rosa EDP 100ml</div>
+                        <div class="product-brand">Armaf</div>
+                        <div class="product-price">Giá: 1.530.000 đ</div>
+                        <p class="product-rating">Đánh giá: ⭐⭐⭐⭐⭐ (1250 đánh giá)</p>
+                        <button class="add-to-cart" onclick="addToCart()">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+
+                <!-- Nước Hoa Nữ Moschino Toy 2 Women EDP 100ml (id=24)-->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/product24.webp" alt="Nước Hoa Nữ Mosch Toy 2 Women EDP 100ml">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name"> Nước Hoa Nữ Moschino Toy 2 Women EDP 100ml</div>
+                        <div class="product-brand">Moschino</div>
+                        <div class="product-price">Giá: 1.850.000 đ</div>
+                        <p class="product-rating">Đánh giá: ⭐⭐⭐⭐⭐ (1250 đánh giá)</p>
+                        <button class="add-to-cart" onclick="addToCart()">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+
+                <!-- Nước Hoa Unisex Maison Martin Margiela Replica By The Fireplace EDT 100ml (id=25)-->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/product25.webp" alt="Nước Hoa Unisex Maison Martin Margiela Replica By The Fireplace EDT 100ml">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name"> Nước Hoa Unisex Maison Martin Margiela Replica By The Fireplace EDT 100ml</div>
+                        <div class="product-brand">Maison Martin Margiela</div>
+                        <div class="product-price">Giá: 3.500.000 đ</div>
+                        <p class="product-rating">Đánh giá: ⭐⭐⭐⭐⭐ (1250 đánh giá)</p>
+                        <button class="add-to-cart" onclick="addToCart()">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+
+                <!--Nước Hoa Maison Francis Kurkdjian Baccarat Rouge 540 Extrait De Parfum 70ml (id=26)-->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/product26.webp" alt="Nước Hoa Maison Francis Kurkdjian Baccarat Rouge 540 Extrait De Parfum 70ml">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">Nước Hoa Maison Francis Kurkdjian Baccarat Rouge 540 Extrait De Parfum 70ml</div>
+                        <div class="product-brand">Maison Francis Kurkdjian</div>
+                        <div class="product-price">Giá: 10.000.000 đ</div>
+                        <p class="product-rating">Đánh giá: ⭐⭐⭐⭐⭐ (1250 đánh giá)</p>
+                        <button class="add-to-cart" onclick="addToCart()">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+
+                <!--Nước Hoa Nam Dolce & Gabbana D&G Light Blue Pour Homme EDT 125ml (id=27)-->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/product27.webp" alt="Nước Hoa Nam Dolce & Gabbana D&G Light Blue Pour Homme EDT 125ml">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">Nước Hoa Nam Dolce & Gabbana D&G Light Blue Pour Homme EDT 125ml</div>
+                        <div class="product-brand"> Dolce & Gabbana (D&G) </div>
+                        <div class="product-price">Giá: 2.000.000 đ</div>
+                        <p class="product-rating">Đánh giá: ⭐⭐⭐⭐⭐ (1250 đánh giá)</p>
+                        <button class="add-to-cart" onclick="addToCart()">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+
+                <!--Set Nước Hoa Nữ Dior Miss Dior Blooming Gift Set 4 Món (Gồm Túi) (id=28)-->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/product28.webp" alt="Set Nước Hoa Nữ Dior Miss Dior Blooming Gift Set 4 Món (Gồm Túi)">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">Set Nước Hoa Nữ Dior Miss Dior Blooming Gift Set 4 Món (Gồm Túi) </div>
+                        <div class="product-brand">Dior</div>
+                        <div class="product-price">Giá: 1.890.000 đ</div>
+                        <p class="product-rating">Đánh giá: ⭐⭐⭐⭐⭐ (1250 đánh giá)</p>
+                        <button class="add-to-cart" onclick="addToCart()">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+
+                <!--Nước Hoa Nam Armaf Odyssey Mandarin Sky Limited Edition EDP 100ml (id=29)-->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/product29.webp" alt="Nước Hoa Nam  Armaf Odyssey Mandarin Sky Limited Edition EDP 100ml">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">Nước Hoa Nam Armaf Odyssey Mandarin Sky Limited Edition EDP 100ml</div>
+                        <div class="product-brand">Armaf</div>
+                        <div class="product-price">Giá: 1.500.000 đ</div>
+                        <p class="product-rating">Đánh giá: ⭐⭐⭐⭐⭐ (1250 đánh giá)</p>
+                        <button class="add-to-cart" onclick="addToCart()">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+
+                <!--Set Nước Hoa Nữ Yves Saint Laurent YSL Libre EDP (90ml +Mini 10ml) (id=30)-->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/product30.webp" alt="Set Nước Hoa Nữ Yves Saint Laurent YSL Libre EDP (90ml +Mini 10ml) ">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">Set Nước Hoa Nữ Yves Saint Laurent YSL Libre EDP (90ml +Mini 10ml) </div>
+                        <div class="product-brand">YSL</div>
+                        <div class="product-price">Giá: 4.100.000 đ</div>
+                        <p class="product-rating">Đánh giá: ⭐⭐⭐⭐⭐ (1250 đánh giá)</p>
+                        <button class="add-to-cart" onclick="addToCart()">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+
+                <!-- Nước Hoa Nữ Armaf Yum Yum EDP 100ml (id=31)-->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/product31.webp" alt="Nước Hoa Nữ Armaf Yum Yum EDP 100ml">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name"> Nước Hoa Nữ Armaf Yum Yum EDP 100ml</div>
+                        <div class="product-brand">Armaf</div>
+                        <div class="product-price">Giá: 1.800.000 đ</div>
+                        <p class="product-rating">Đánh giá: ⭐⭐⭐⭐⭐ (1250 đánh giá)</p>
+                        <button class="add-to-cart" onclick="addToCart()">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+
+                <!-- Nước Hoa Nam Giorgio Armani Armani Code EDT 125ml (id=32)-->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/product32.webp" alt="Nước Hoa Nam Giorgio Armani Armani Code EDT 125ml">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name"> Nước Hoa Nam Giorgio Armani Armani Code EDT 125ml</div>
+                        <div class="product-brand">Giorgio Armani</div>
+                        <div class="product-price">Giá: 2.900.000 đ</div>
+                        <p class="product-rating">Đánh giá: ⭐⭐⭐⭐⭐ (1250 đánh giá)</p>
+                        <button class="add-to-cart" onclick="addToCart()">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+
+                <!--Nước Hoa Nữ Salvatore Ferragamo Signorina EDP 100ml (id=33)-->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/product33.webp" alt="Nước Hoa Nữ Salvatore Ferragamo Signor">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">Nước Hoa Nữ Salvatore Ferragamo Signorina EDP 100ml</div>
+                        <div class="product-brand">Salvatore</div>
+                        <div class="product-price">Giá: 1.900.000 đ</div>
+                        <p class="product-rating">Đánh giá: ⭐⭐⭐⭐⭐ (1250 đánh giá)</p>
+                        <button class="add-to-cart" onclick="addToCart()">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+
+                <!-- Nước Hoa Nam Burberry London For Men 100ml Lịch Lãm (id=34)-->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/product34.webp" alt="Nước Hoa Nam Burberry London For Men 100ml Lịch Lãm">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name"> Nước Hoa Nam Burberry London For Men 100ml Lịch Lãm</div>
+                        <div class="product-brand">Burberry</div>
+                        <div class="product-price">Giá: 1.800.000 đ</div>
+                        <p class="product-rating">Đánh giá: ⭐⭐⭐⭐⭐ (1250 đánh giá)</p>
+                        <button class="add-to-cart" onclick="addToCart()">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+
+                <!--Nước Hoa Nam Giorgio Armani Acqua Di Gio Profondo EDP 100ml (id=35)-->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/product35.webp" alt="Nước Hoa Nam Giorgio Armani Acqua Di Gio Profondo EDP 100ml">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">Nước Hoa Nam Giorgio Armani Acqua Di Gio Profondo EDP 100ml</div>
+                        <div class="product-brand">Giorgio Armani</div>
+                        <div class="product-price">Giá: 3.400.000 đ</div>
+                        <p class="product-rating">Đánh giá: ⭐⭐⭐⭐⭐ (1250 đánh giá)</p>
+                        <button class="add-to-cart" onclick="addToCart()">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+
+                <!--Nước Hoa Nữ Chanel Chance Eau Fraiche Eau De Toilette (EDT) 100ml (id=36)-->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/product36.webp" alt="Nước Hoa Nữ Chanel Chance Eau Fraiche Eau De Toilette (EDT) 100ml">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">Nước Hoa Nữ Chanel Chance Eau Fraiche Eau De Toilette (EDT) 100ml</div>
+                        <div class="product-brand">Chanel</div>
+                        <div class="product-price">Giá: 3.900.000 đ</div>
+                        <p class="product-rating">Đánh giá: ⭐⭐⭐⭐⭐ (1250 đánh giá)</p>
+                        <button class="add-to-cart" onclick="addToCart()">Thêm vào giỏ hàng</button>
+                    </div>'
+                </div>
+
+                <!--Nước Hoa Nữ Yves Saint Laurent YSL Black Opium EDP 90ml (id=37)-->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/product37.webp" alt="Nước Hoa Nữ Yves Saint Laurent YSL Black Opium EDP 90ml">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">Nước Hoa Nữ Yves Saint Laurent YSL Black Opium EDP 90ml</div>
+                        <div class="product-brand">YSL</div>
+                        <div class="product-price">Giá: 3.100.000 đ</div>
+                        <p class="product-rating">Đánh giá: ⭐⭐⭐⭐⭐ (1250 đánh giá)</p>
+                        <button class="add-to-cart" onclick="addToCart()">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+
+                <!--Nước Hoa Nữ Chanel Chance EDP 100ml (id=38)-->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/product38.webp" alt="Nước Hoa Nữ Chanel Chance EDP 100ml">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">Nước Hoa Nữ Chanel Chance EDP 100ml</div>
+                        <div class="product-brand">Chanel</div>
+                        <div class="product-price">Giá: 4.000.000 đ</div>
+                        <p class="product-rating">Đánh giá: ⭐⭐⭐⭐⭐ (1250 đánh giá)</p>
+                        <button class="add-to-cart" onclick="addToCart()">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+
+                <!-- Nước Hoa Nữ Giorgio Armani Si Eau De Perfum 100ml (id=39)-->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/product39.webp" alt="Nước Hoa Nữ Giorgio Armani Si Eau De Perfum 100ml">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name"> Nước Hoa Nữ Giorgio Armani Si Eau De Perfum 100ml</div>
+                        <div class="product-brand">Giorgio Armani</div>
+                        <div class="product-price">Giá: 2.900.000 đ</div>
+                        <p class="product-rating">Đánh giá: ⭐⭐⭐⭐⭐ (1250 đánh giá)</p>
+                        <button class="add-to-cart" onclick="addToCart()">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+
+                <!-- Nước Hoa Nữ Jean Paul Gaultier Scandal EDP 80ml (id=40)-->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/product40.webp" alt="Nước Hoa Nữ Jean Paul Gaultier Scandal EDP 80ml">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name"> Nước Hoa Nữ Jean Paul Gaultier Scandal EDP 80ml </div>
+                        <div class="product-brand">Jean Paul Gaultier</div>
+                        <div class="product-price">Giá: 2.990.000 đ</p></div> 
+                        <p class="product-rating">Đánh giá: ⭐⭐⭐⭐⭐ (1250 đánh giá)</p>
+                        <button class="add-to-cart" onclick="addToCart()">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+            
+    </section>
+        </main>
+    </div>
+
+    <div class="social-icons">
+        <a href="#" class="social-icon phone">📞</a>
+        <a href="#" class="social-icon zalo">Z</a>
+    </div>
+    
+    <div class="pagination">
+        <ul>
+            <li class="prev-next"><a href="index.html">Trước</a></li>
+            <li><a href="index.html" class="active">1</a></li>
+            <li><a href="page2.html" class="active">2</a></li>
+            <li><a href="#"class="active">3</a></li>
+            <li><a href="#"class="active">4</a></li>
+            <li><a href="#"class="active">5</a></li>
+            <li class="prev-next"><a href="#">Sau</a></li>
+        </ul>
+    </div>
+        
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h2>Giỏ hàng</h2>
+            <button class="close-cart" id="close-cart">×</button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- Cart items will be dynamically added here -->
+            <div class="cart-item">
+                <div class="cart-item-image">
+                    <img src="images/product1.webp" alt="Sauvage">
+                </div>
+                <div class="cart-item-details">
+                    <div class="cart-item-name">Sauvage</div>
+                    <div class="cart-item-price">60.000đ</div>
+                    <div class="cart-item-quantity">
+                        <button class="quantity-btn">-</button>
+                        <input type="text" class="quantity-input" value="1">
+                        <button class="quantity-btn">+</button>
+                    </div>
+                    <button class="remove-item">Xóa</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="cart-total">Tổng cộng: 2.650.000đ</div>
+        
+        <button class="checkout-btn" onclick="goToCheckout()">Thanh toán</button>
+    </div>
+    
+     <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section"> 
+                <h3>Thông tin thành viên nhóm</h3>
+                <ul>
+                    <li>Lại Nhật Trường - 2173401011175</li>
+                    <li>Lê Nguyễn Xuân Diệu - 2273401150188</li>
+                    <li>Lê Ngọc Nga - 2273401150795</li>
+                    <li>Nguyễn Thị Thùy Dung - 2273401150201</li>
+                    <li>Nguyễn Bạch Thành Hưng - 2273401150502</li>
+                    <li>Lâm Mỹ Tiên	- 207MA63623</li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Trường Đại học Văn Lang</h3>
+                <div class="contact-info">
+                    <i class="fas fa-map-marker-alt">📍</i>
+                    <span>69/68 Đặng Thùy Trâm, Phường 13, Quận Bình Thạnh, TP. Hồ Chí Minh, Việt Nam.</span>
+                </div>
+                <div class="contact-info">
+                    <i class="fas fa-phone">📞</i>
+                    <span>Hotline tuyển sinh: 028 7105 9999</span>
+                </div>
+                <div class="contact-info">
+                    <i class="fas fa-envelope">✉️</i>
+                    <a href="https://www.vanlanguni.edu.vn" target="_blank" rel="noopener noreferrer">
+                        Trường Đại học Văn Lang
+                    </a>
+                </div>
+                
+                <div class="contact-info">
+                    <i class="fas fa-clock">🕒</i>
+                    <span>Thứ Hai - Thứ Sáu: 9:00 - 17:00</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 242 Perfume. ĐỒ ÁN MÔN THƯƠNG MẠI ĐIỆN TỬ</p>
+        </div>
+    </footer>
+    <div id="overlay" class="overlay"></div>
+    <script src="script.js" defer></script>
+
+
+
+
+</body>
+
+</html>

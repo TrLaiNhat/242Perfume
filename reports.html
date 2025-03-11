@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>242 Perfume - Báo cáo</title>
+  <style>
+    :root {
+      --primary-color: #e16767;
+      --secondary-color: #f5f5f5;
+      --accent-color: #db32ae;
+      --text-color: #333;
+      --light-text: #777;
+      --success: #27ae60;
+      --warning: #f39c12;
+      --danger: #e74c3c;
+      --pending: #3498db;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #f9f9f9;
+      color: var(--text-color);
+    }
+
+    .container {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 250px;
+      background-color: var(--primary-color);
+      color: white;
+      padding: 20px;
+      position: fixed;
+      height: 100vh;
+      overflow-y: auto;
+    }
+
+    .logo {
+      text-align: center;
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .logo h1 {
+      font-size: 24px;
+    }
+
+    .menu {
+      margin-top: 20px;
+    }
+
+    .menu-item {
+      padding: 12px 15px;
+      border-radius: 5px;
+      margin-bottom: 5px;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+    }
+
+    .menu-item:hover,
+    .menu-item.active {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .menu-item i {
+      margin-right: 10px;
+      font-size: 18px;
+    }
+
+    
+
+    /* Main Content */
+    .main-content {
+      flex: 1;
+      padding: 20px;
+      margin-left: 250px;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      border-bottom: 1px solid #eee;
+      margin-bottom: 20px;
+    }
+
+    .user-info {
+      display: flex;
+      align-items: center;
+    }
+
+    .user-info img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    /* Reports Section */
+    .reports-section {
+      background-color: white;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      margin-bottom: 30px;
+    }
+
+    .reports-section h3 {
+      margin-bottom: 20px;
+    }
+
+    /* Chart canvas responsive */
+    .chart-container {
+      position: relative;
+      height: 400px; /* có thể điều chỉnh chiều cao theo ý bạn */
+      width: 100%;
+    }
+
+    @media (max-width: 768px) {
+      .sidebar {
+        width: 70px;
+        padding: 15px 10px;
+      }
+
+      .logo h1,
+      .menu-item span {
+        display: none;
+      }
+
+      .menu-item {
+        justify-content: center;
+      }
+
+      .menu-item i {
+        margin-right: 0;
+      }
+
+      .main-content {
+        margin-left: 70px;
+      }
+    }
+  </style>
+  <!-- Link Font Awesome để sử dụng icon -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+  />
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="logo">
+        <a href="page1.html"></a>
+        <h1>242 Perfume</h1>
+      </div>
+
+      <div class="menu">
+
+        <div class="menu-item">
+                    <a href="dashboard.html" class="menu-link"></a>
+                        <i class="fas fa-dashboard"></i>
+                        <span>Tổng quan</span>
+                </div>
+            
+                <div class="menu-item">
+                    <a href="Order.html" class="menu-link"></a>
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Đơn hàng</span>
+                </div>
+            
+                <div class="menu-item">
+                    <a href="products.html" class="menu-link"></a>
+                        <i class="fas fa-box"></i>
+                        <span>Sản phẩm</span>
+                </div>
+
+                <div class="menu-item">
+                    <a href="customers.html" class="menu-link"></a>
+                        <i class="fas fa-users"></i>
+                        <span>Khách hàng</span>
+                </div>
+
+                <div class="menu-item">
+                    <a href="reports.html" class="menu-link active"></a>
+                        <i class="fas fa-chart-line"></i>
+                        <span>Báo cáo</span>
+                </div>
+
+                <div  class="menu-item">
+                    <a href="settings.html" class="menu-link"></a>
+                        <i class="fas fa-cog"></i>
+                        <span>Cài đặt</span>
+                </div>              
+            </div>
+        </div>>
+    <!-- Main Content -->
+    <div class="main-content">
+      <div class="header">
+        <h2>Báo cáo</h2>
+        <div class="user-info">
+          <img src="images/Lại Nhật Trường.jpg" alt="Admin" />
+          <div>
+            <h4>Lại Nhật Trường</h4>
+            <small>Quản lý</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- Biểu đồ Đơn hàng -->
+      <div class="reports-section">
+        <h3>Biểu đồ Đơn hàng</h3>
+        <div class="chart-container">
+          <canvas id="ordersChart"></canvas>
+        </div>
+      </div>
+
+      <!-- Biểu đồ Doanh thu -->
+      <div class="reports-section">
+        <h3>Biểu đồ Doanh thu</h3>
+        <div class="chart-container">
+          <canvas id="revenueChart"></canvas>
+        </div>
+      </div>
+
+      <!-- Biểu đồ Khách hàng -->
+      <div class="reports-section">
+        <h3>Biểu đồ Khách hàng</h3>
+        <div class="chart-container">
+          <canvas id="customersChart"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Thư viện Chart.js (CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    // ================== Biểu đồ Đơn hàng (Line Chart) ==================
+    const ordersCtx = document.getElementById('ordersChart').getContext('2d');
+    const ordersChart = new Chart(ordersCtx, {
+      type: 'line',
+      data: {
+        labels: [
+          'Tháng 1',
+          'Tháng 2',
+          'Tháng 3',
+          'Tháng 4',
+          'Tháng 5',
+          'Tháng 6'
+        ],
+        datasets: [
+          {
+            label: 'Số đơn hàng',
+            data: [120, 150, 180, 200, 170, 220],
+            backgroundColor: 'rgba(52, 152, 219, 0.2)',
+            borderColor: 'rgba(52, 152, 219, 1)',
+            borderWidth: 2,
+            fill: true,
+            tension: 0.2
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { display: true }
+        },
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+
+    // ================== Biểu đồ Doanh thu (Bar Chart) ==================
+    const revenueCtx = document.getElementById('revenueChart').getContext('2d');
+    const revenueChart = new Chart(revenueCtx, {
+      type: 'bar',
+      data: {
+        labels: [
+          'Tháng 1',
+          'Tháng 2',
+          'Tháng 3',
+          'Tháng 4',
+          'Tháng 5',
+          'Tháng 6'
+        ],
+        datasets: [
+          {
+            label: 'Doanh thu (Triệu VNĐ)',
+            data: [45, 60, 75, 90, 80, 100],
+            backgroundColor: 'rgba(230, 103, 103, 0.8)',
+            borderColor: 'rgba(230, 103, 103, 1)',
+            borderWidth: 1
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { display: true }
+        },
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+
+    // ================== Biểu đồ Khách hàng (Pie Chart) ==================
+    const customersCtx = document.getElementById('customersChart').getContext('2d');
+    const customersChart = new Chart(customersCtx, {
+      type: 'pie',
+      data: {
+        labels: ['Mới', 'Quay lại', 'VIP'],
+        datasets: [
+          {
+            label: 'Tỉ lệ khách hàng',
+            data: [40, 35, 25], // Phần trăm hoặc giá trị tuỳ bạn
+            backgroundColor: [
+              'rgba(46, 204, 113, 0.7)',   // Màu "Mới"
+              'rgba(241, 196, 15, 0.7)',   // Màu "Quay lại"
+              'rgba(231, 76, 60, 0.7)'     // Màu "VIP"
+            ],
+            borderColor: [
+              'rgba(46, 204, 113, 1)',
+              'rgba(241, 196, 15, 1)',
+              'rgba(231, 76, 60, 1)'
+            ],
+            borderWidth: 1
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'bottom'
+          }
+        }
+      }
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+  // Select all menu items
+  const menuItems = document.querySelectorAll('.menu-item');
+
+  // Add click event listener to each menu item
+  menuItems.forEach(item => {
+        item.addEventListener('click', function() {
+            // Find the link within the clicked menu item
+            const link = this.querySelector('a');
+            
+            // Check if link exists before navigating
+            if (link && link.href) {
+                // Navigate to the link's href
+                window.location.href = link.href;
+            }
+        });
+
+        // Optional: Add hover and active state styling
+        item.addEventListener('mouseenter', function() {
+            this.style.backgroundColor = '#f0f0f0';
+            this.style.cursor = 'pointer';
+        });
+
+        item.addEventListener('mouseleave', function() {
+            this.style.backgroundColor = '';
+        });
+    });
+
+    // Highlight active menu item based on current page
+    const currentPage = window.location.pathname.split('/').pop();
+    menuItems.forEach(item => {
+        const link = item.querySelector('a');
+        if (link) {
+            const href = link.getAttribute('href');
+            if (href === currentPage) {
+                item.classList.add('active');
+            }
+        }
+    });
+});
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+    const logo = document.querySelector(".logo");
+
+    if (logo) {
+        logo.addEventListener("click", function () {
+            window.location.href = "index.html"; // Chuyển hướng đến trang index.html
+        });
+    }
+});
+  </script>
+</body>
+</html>

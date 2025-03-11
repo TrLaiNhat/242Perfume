@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanh Toán</title>
+    <link rel="stylesheet" href="css/checkout.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">242 Perfume</div>
+            <div>
+                <a href="page1.html">Tiếp tục mua sắm</a>
+            </div>
+        </header>
+        
+        <div class="checkout-container">
+            <div class="checkout-form">
+                <h2>Thông Tin Thanh Toán</h2>
+                
+                <div class="form-group">
+                    <label for="name">Họ và tên</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Số điện thoại</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                
+                <h2>Địa Chỉ Giao Hàng</h2>
+                
+                <div class="form-group">
+                    <label for="address">Địa chỉ</label>
+                    <input type="text" id="address" name="address" required>
+                </div>
+                
+                <div class="row">
+                    <div class="col form-group">
+                        <label for="city">Thành phố</label>
+                        <input type="text" id="city" name="city" required>
+                    </div>
+                    <div class="col form-group">
+                        <label for="district">Quận/Huyện</label>
+                        <input type="text" id="district" name="district" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="note">Ghi chú (không bắt buộc)</label>
+                    <textarea id="note" name="note" rows="3"></textarea>
+                </div>
+                
+                <h2>Phương Thức Thanh Toán</h2>
+                
+                <div class="payment-methods">
+                    <div class="payment-method active" data-method="cod">
+                        <div>Thanh toán khi nhận hàng</div>
+                    </div>
+                    <div class="payment-method" data-method="card">
+                        <div>Thẻ tín dụng/Ghi nợ</div>
+                    </div>
+                    <div class="payment-method" data-method="banking">
+                        <div>Chuyển khoản ngân hàng</div>
+                    </div>
+                </div>
+                
+                <div class="credit-card-form" style="display: none;">
+                    <div class="form-group">
+                        <label for="card-number">Số thẻ</label>
+                        <input type="text" id="card-number" name="card-number">
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col form-group">
+                            <label for="expiry">Ngày hết hạn</label>
+                            <input type="text" id="expiry" name="expiry" placeholder="MM/YY">
+                        </div>
+                        <div class="col form-group">
+                            <label for="cvv">CVV</label>
+                            <input type="text" id="cvv" name="cvv">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="card-name">Tên trên thẻ</label>
+                        <input type="text" id="card-name" name="card-name">
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn" id="checkout-btn">Hoàn tất đặt hàng</button>
+            </div>
+            
+            <div class="order-summary">
+                <h2>Tóm Tắt Đơn Hàng</h2>
+                
+                <div id="cart-items">
+                    <!-- Cart items will be loaded dynamically -->
+                </div>
+                
+                <div class="summary">
+                    <div class="summary-row">
+                        <div>Tạm tính</div>
+                        <div id="subtotal">0 ₫</div>
+                    </div>
+                    <div class="summary-row">
+                        <div>Phí vận chuyển</div>
+                        <div id="shipping">0 ₫</div>
+                    </div>
+                    <div class="summary-row">
+                        <div>Giảm giá</div>
+                        <div id="discount">0 ₫</div>
+                    </div>
+                    <div class="summary-row total">
+                        <div>Tổng cộng</div>
+                        <div id="total">0 ₫</div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="coupon">Mã giảm giá</label>
+                    <div style="display: flex;">
+                        <input type="text" id="coupon" name="coupon" style="border-radius: 4px 0 0 4px;">
+                        <button style="width: 100px; border-radius: 0 4px 4px 0; background: #e24b7d; color: white; border: none; cursor: pointer;">Áp dụng</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© 2025 242 Perfume. Tất cả các quyền được bảo lưu vì đây là đồ án để nộp thôi.</p>
+        </footer>
+    </div>
+<script src="checkout.js"></script>
+  
+</body>
+</html>

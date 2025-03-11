@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>242 Perfume - Khách hàng</title>
+  <style>
+    :root {
+      --primary-color: #e16767;
+      --secondary-color: #f5f5f5;
+      --accent-color: #db32ae;
+      --text-color: #333;
+      --light-text: #777;
+      --success: #27ae60;
+      --warning: #f39c12;
+      --danger: #e74c3c;
+      --pending: #3498db;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #f9f9f9;
+      color: var(--text-color);
+    }
+
+    .container {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 250px;
+      background-color: var(--primary-color);
+      color: white;
+      padding: 20px;
+      position: fixed;
+      height: 100vh;
+      overflow-y: auto;
+    }
+
+    .logo {
+      text-align: center;
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .logo h1 {
+      font-size: 24px;
+    }
+
+    .menu {
+      margin-top: 20px;
+    }
+
+    .menu-item {
+      padding: 12px 15px;
+      border-radius: 5px;
+      margin-bottom: 5px;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+    }
+
+    .menu-item:hover,
+    .menu-item.active {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .menu-item i {
+      margin-right: 10px;
+      font-size: 18px;
+    }
+
+    
+
+    /* Main Content */
+    .main-content {
+      flex: 1;
+      padding: 20px;
+      margin-left: 250px;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      border-bottom: 1px solid #eee;
+      margin-bottom: 20px;
+    }
+
+    .user-info {
+      display: flex;
+      align-items: center;
+    }
+
+    .user-info img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    /* Customers Section */
+    .customers-section {
+      background-color: white;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .section-title {
+      font-size: 20px;
+    }
+
+    .search-bar {
+      display: flex;
+      align-items: center;
+      background-color: var(--secondary-color);
+      border-radius: 5px;
+      padding: 8px 15px;
+      width: 300px;
+    }
+
+    .search-bar input {
+      border: none;
+      background: transparent;
+      outline: none;
+      flex: 1;
+      margin-left: 10px;
+    }
+
+    .customers-list {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .customers-list th,
+    .customers-list td {
+      padding: 15px;
+      text-align: left;
+      border-bottom: 1px solid #eee;
+    }
+
+    .customers-list th {
+      font-weight: 600;
+      color: var(--light-text);
+    }
+
+    .status {
+      padding: 5px 10px;
+      border-radius: 15px;
+      font-size: 12px;
+      font-weight: 600;
+      text-align: center;
+      display: inline-block;
+      min-width: 100px;
+    }
+
+    .status.active {
+      background-color: rgba(39, 174, 96, 0.1);
+      color: var(--success);
+    }
+
+    .status.inactive {
+      background-color: rgba(243, 156, 18, 0.1);
+      color: var(--warning);
+    }
+
+    .status.banned {
+      background-color: rgba(231, 76, 60, 0.1);
+      color: var(--danger);
+    }
+
+    .view-btn {
+      padding: 8px 15px;
+      background-color: var(--accent-color);
+      color: var(--primary-color);
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+
+    .view-btn:hover {
+      background-color: var(--primary-color);
+      color: white;
+    }
+
+    .pagination {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 20px;
+    }
+
+    .pagination button {
+      padding: 8px 15px;
+      border: 1px solid #ddd;
+      background-color: white;
+      margin-right: 5px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .pagination button.active {
+      background-color: var(--primary-color);
+      color: white;
+      border-color: var(--primary-color);
+    }
+
+    /* Modal Customer Detail */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 100;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background-color: white;
+      border-radius: 10px;
+      width: 80%;
+      max-width: 800px;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 30px;
+      position: relative;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .sidebar {
+        width: 70px;
+        padding: 15px 10px;
+      }
+
+      .logo h1,
+      .menu-item span {
+        display: none;
+      }
+
+      .menu-item {
+        justify-content: center;
+      }
+
+      .menu-item i {
+        margin-right: 0;
+      }
+
+      .main-content {
+        margin-left: 70px;
+      }
+    }
+  </style>
+  <!-- Link Font Awesome để sử dụng icon -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+  />
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo">
+            <a href="index.html"></a>
+            <h1>242 Perfume </h1>
+        </div>
+        
+        <div class="menu">
+
+            <div  class="menu-item">
+                <a href="dashboard.html" class="menu-link"></a>
+                    <i class="fas fa-dashboard"></i>
+                    <span>Tổng quan</span>
+            </div>
+        
+            <div class="menu-item">
+                <a href="Order.html" class="menu-link"></a>
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Đơn hàng</span>
+            </div>
+        
+            <div class="menu-item">
+                <a href="products.html" class="menu-link"></a>
+                    <i class="fas fa-box"></i>
+                    <span>Sản phẩm</span>
+            </div>
+
+            <div class="menu-item">
+                <a href="customers.html" class="menu-link active"></a>
+                    <i class="fas fa-users"></i>
+                    <span>Khách hàng</span>
+            </div>
+
+            <div class="menu-item">
+                <a href="reports.html" class="menu-link"></a>
+                    <i class="fas fa-chart-line"></i>
+                    <span>Báo cáo</span>
+            </div>
+
+            <div  class="menu-item">
+                <a href="settings.html" class="menu-link"></a>
+                    <i class="fas fa-cog"></i>
+                    <span>Cài đặt</span>
+            </div>              
+        </div>
+    </div>
+    <!-- Main Content -->
+    <div class="main-content">
+      <div class="header">
+        <h2>Khách hàng</h2>
+        <div class="user-info">
+          <img src="images/Lại Nhật Trường.jpg" alt="Admin" />
+          <div>
+            <h4>Lại Nhật Trường</h4>
+            <small>Quản lý</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- Customers Section -->
+      <div class="customers-section">
+        <div class="section-header">
+          <h3 class="section-title">Danh sách khách hàng</h3>
+          <div class="search-bar">
+            <i class="fas fa-search"></i>
+            <input type="text" id="searchInput" placeholder="Tìm theo tên hoặc mã khách hàng" />
+          </div>
+        </div>
+        <table class="customers-list">
+          <thead>
+            <tr>
+              <th>Mã KH</th>
+              <th>Tên khách hàng</th>
+              <th>Email</th>
+              <th>Số điện thoại</th>
+              <th>Trạng thái</th>
+              <th>Hành động</th>
+            </tr>
+          </thead>
+          <tbody id="customersTable">
+            <!-- Dữ liệu khách hàng sẽ được chèn vào đây bằng JavaScript -->
+          </tbody>
+        </table>
+        <!-- Phân trang -->
+        <div class="pagination" id="pagination">
+          <!-- Nút chuyển trang sẽ được tạo động -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal hiển thị chi tiết khách hàng -->
+  <div class="modal" id="customerModal">
+    <div class="modal-content">
+      <span class="close-modal" id="closeModal">&times;</span>
+      <h3>Chi tiết khách hàng</h3>
+      <div id="customerDetails">
+        <!-- Nội dung chi tiết khách hàng sẽ được chèn vào đây -->
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Dữ liệu mẫu cho khách hàng
+    const customers = [
+      {
+        id: "KH001",
+        name: "Nguyễn Văn A",
+        email: "vana@example.com",
+        phone: "0123 456 789",
+        status: "active"
+      },
+      {
+        id: "KH002",
+        name: "Trần Thị B",
+        email: "thib@example.com",
+        phone: "0987 654 321",
+        status: "inactive"
+      },
+      {
+        id: "KH003",
+        name: "Lê Văn C",
+        email: "vanc@example.com",
+        phone: "0111 222 333",
+        status: "banned"
+      },
+      {
+        id: "KH004",
+        name: "Phạm Thị D",
+        email: "thid@example.com",
+        phone: "0999 888 777",
+        status: "active"
+      }
+    ];
+
+    const customersPerPage = 2;
+    let currentPage = 1;
+
+    // Hàm hiển thị danh sách khách hàng lên bảng
+    function displayCustomers(filteredCustomers) {
+      const customersTable = document.getElementById("customersTable");
+      customersTable.innerHTML = "";
+
+      const start = (currentPage - 1) * customersPerPage;
+      const end = start + customersPerPage;
+      const paginatedCustomers = filteredCustomers.slice(start, end);
+
+      paginatedCustomers.forEach((customer) => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td>${customer.id}</td>
+          <td>${customer.name}</td>
+          <td>${customer.email}</td>
+          <td>${customer.phone}</td>
+          <td><span class="status ${customer.status}">${getStatusText(customer.status)}</span></td>
+          <td><button class="view-btn" onclick="viewCustomer('${customer.id}')">Xem</button></td>
+        `;
+        customersTable.appendChild(tr);
+      });
+
+      displayPagination(filteredCustomers);
+    }
+
+    // Hàm hiển thị phân trang
+    function displayPagination(filteredCustomers) {
+      const pagination = document.getElementById("pagination");
+      pagination.innerHTML = "";
+      const totalPages = Math.ceil(filteredCustomers.length / customersPerPage);
+
+      for (let i = 1; i <= totalPages; i++) {
+        const btn = document.createElement("button");
+        btn.textContent = i;
+        if (i === currentPage) {
+          btn.classList.add("active");
+        }
+        btn.addEventListener("click", () => {
+          currentPage = i;
+          displayCustomers(filteredCustomers);
+        });
+        pagination.appendChild(btn);
+      }
+    }
+
+    // Hàm chuyển trạng thái hiển thị
+    function getStatusText(status) {
+      switch (status) {
+        case "active":
+          return "Đang hoạt động";
+        case "inactive":
+          return "Tạm ngừng";
+        case "banned":
+          return "Bị cấm";
+        default:
+          return "";
+      }
+    }
+
+    // Xem chi tiết khách hàng (hiển thị modal)
+    function viewCustomer(customerId) {
+      const customer = customers.find((c) => c.id === customerId);
+      if (!customer) return;
+      const customerDetails = document.getElementById("customerDetails");
+      customerDetails.innerHTML = `
+        <p><strong>Mã KH:</strong> ${customer.id}</p>
+        <p><strong>Tên khách hàng:</strong> ${customer.name}</p>
+        <p><strong>Email:</strong> ${customer.email}</p>
+        <p><strong>Số điện thoại:</strong> ${customer.phone}</p>
+        <p><strong>Trạng thái:</strong> ${getStatusText(customer.status)}</p>
+      `;
+      document.getElementById("customerModal").style.display = "flex";
+    }
+
+    // Đóng modal
+    document.getElementById("closeModal").addEventListener("click", function () {
+      document.getElementById("customerModal").style.display = "none";
+    });
+
+    // Đóng modal khi click bên ngoài nội dung modal
+    window.addEventListener("click", function (e) {
+      if (e.target === document.getElementById("customerModal")) {
+        document.getElementById("customerModal").style.display = "none";
+      }
+    });
+
+    // Tìm kiếm khách hàng
+    document.getElementById("searchInput").addEventListener("input", function () {
+      const query = this.value.toLowerCase();
+      const filteredCustomers = customers.filter(
+        (customer) =>
+          customer.id.toLowerCase().includes(query) ||
+          customer.name.toLowerCase().includes(query)
+      );
+      currentPage = 1;
+      displayCustomers(filteredCustomers);
+    });
+
+    // Hiển thị danh sách khách hàng khi trang vừa tải
+    displayCustomers(customers);
+
+    document.addEventListener('DOMContentLoaded', function() {
+  // Select all menu items
+  const menuItems = document.querySelectorAll('.menu-item');
+
+  // Add click event listener to each menu item
+  menuItems.forEach(item => {
+        item.addEventListener('click', function() {
+            // Find the link within the clicked menu item
+            const link = this.querySelector('a');
+            
+            // Check if link exists before navigating
+            if (link && link.href) {
+                // Navigate to the link's href
+                window.location.href = link.href;
+            }
+        });
+
+        // Optional: Add hover and active state styling
+        item.addEventListener('mouseenter', function() {
+            this.style.backgroundColor = '#f0f0f0';
+            this.style.cursor = 'pointer';
+        });
+
+        item.addEventListener('mouseleave', function() {
+            this.style.backgroundColor = '';
+        });
+    });
+
+    // Highlight active menu item based on current page
+    const currentPage = window.location.pathname.split('/').pop();
+    menuItems.forEach(item => {
+        const link = item.querySelector('a');
+        if (link) {
+            const href = link.getAttribute('href');
+            if (href === currentPage) {
+                item.classList.add('active');
+            }
+        }
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const logo = document.querySelector(".logo");
+
+    if (logo) {
+        logo.addEventListener("click", function () {
+            window.location.href = "index.html"; // Chuyển hướng đến trang index.html
+        });
+    }
+});
+
+  </script>
+</body>
+</html>

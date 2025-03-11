@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liên Hệ - 242 Perfume</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Reset và base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Header styles */
+header {
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.logo h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #c22340;
+}
+
+nav ul {
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+nav ul li a {
+    position: relative;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #a40c32;
+}
+
+nav ul li a.active {
+    color: #ad1f56;
+}
+
+nav ul li a.active::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #991d51;
+    bottom: -5px;
+    left: 0;
+}
+
+/* Hero section */
+.hero-contact {
+    background: linear-gradient(to right, #b6175c, #9b59b6);
+    color: white;
+    text-align: center;
+    padding: 80px 0;
+}
+
+.hero-contact h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.hero-contact p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Contact info section */
+.contact-info {
+    padding: 80px 0;
+    background-color: #fff;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.info-card {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.info-card .icon {
+    background-color: #f3e5f5;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+}
+
+.info-card .icon i {
+    font-size: 24px;
+    color: #be315d;
+}
+
+.info-card h3 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.info-card p {
+    color: #666;
+    line-height: 1.8;
+}
+
+/* Contact form section */
+.contact-form-section {
+    padding: 80px 0;
+    background-color: #f9f9f9;
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.form-container, 
+.map-container {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 40px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.form-container h2,
+.map-container h2 {
+    margin-bottom: 25px;
+    color: #333;
+    font-size: 1.8rem;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #555;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #931e31;
+    box-shadow: 0 0 0 3px rgba(142, 68, 173, 0.1);
+}
+
+
+.form-status {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 6px;
+    display: none;
+}
+
+.form-status.success {
+    background-color: #d4edda;
+    color: #155724;
+    display: block;
+}
+
+.form-status.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    display: block;
+}
+
+.map-container #map {
+    height: 400px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Social section */
+.social-section {
+    padding: 60px 0;
+    text-align: center;
+    background-color: #fff;
+}
+
+.social-section h2 {
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-link {
+    width: 60px;
+    height: 60px;
+    background-color: #f3e5f5;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: #a8104f;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+.social-link:hover {
+    background-color: #9f224c;
+}
+/* Reset và base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Header styles */
+header {
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.logo h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ad1531;
+}
+
+nav ul {
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+nav ul li a {
+    position: relative;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #d22f57;
+}
+
+nav ul li a.active {
+    color: #e9416b;
+}
+
+nav ul li a.active::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #ee4e7b;
+    bottom: -5px;
+    left: 0;
+}
+
+/* Hero section */
+.hero-contact {
+    background: linear-gradient(to right, #800c2f, #d82f5c);
+    color: white;
+    text-align: center;
+    padding: 80px 0;
+}
+
+.hero-contact h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.hero-contact p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Contact info section */
+.contact-info {
+    padding: 80px 0;
+    background-color: #fff;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.info-card {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.info-card .icon {
+    background-color: #f3e5f5;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+}
+
+.info-card .icon i {
+    font-size: 24px;
+    color: #ed5585;
+}
+
+.info-card h3 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.info-card p {
+    color: #666;
+    line-height: 1.8;
+}
+
+/* Contact form section */
+.contact-form-section {
+    padding: 80px 0;
+    background-color: #f9f9f9;
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.form-container, 
+.map-container {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 40px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.form-container h2,
+.map-container h2 {
+    margin-bottom: 25px;
+    color: #333;
+    font-size: 1.8rem;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #555;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #da3d6a;
+    box-shadow: 0 0 0 3px rgba(142, 68, 173, 0.1);
+}
+
+.btn-submit {
+    background-color: #d43f64;
+    color: white;
+    border: none;
+    padding: 14px 25px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-submit:hover {
+    background-color: #e51b4d;
+    transform: translateY(-2px);
+}
+
+.form-status {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 6px;
+    display: none;
+}
+
+.form-status.success {
+    background-color: #d4edda;
+    color: #155724;
+    display: block;
+}
+
+.form-status.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    display: block;
+}
+
+.map-container #map {
+    height: 400px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Social section */
+.social-section {
+    padding: 60px 0;
+    text-align: center;
+    background-color: #fff;
+}
+
+.social-section h2 {
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-link {
+    width: 60px;
+    height: 60px;
+    background-color: #f3e5f5;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: #eb4e69;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+.social-link:hover {
+    background-color: #f77d9a;
+    color: #fff;
+    transform: translateY(-5px);
+}
+
+/* Footer styles */
+footer {
+        background-color: #333;
+        color: white;
+        padding: 3rem 2rem;
+        text-align: center;
+    }
+        
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+        
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+    margin-bottom: 2rem;
+    text-align: left;
+    padding: 0 1rem;
+}
+        
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-section h3:after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 2px;
+            background-color: #f3c78e;
+            bottom: -5px;
+            left: 0;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section ul li a:hover {
+            color: #f3c78e;
+        }
+        
+        .copyright {
+            margin-top: 2rem;
+            border-top: 1px solid #555;
+            padding-top: 1rem;
+            color: #aaa;
+        }
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: #ea6469;
+            color: #333;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #efef86;
+        }
+        
+.newsletter-form {
+    display: flex;
+}
+
+.newsletter-form input {
+    flex: 1;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 6px 0 0 6px;
+    font-size: 14px;
+}
+
+.newsletter-form button {
+    background-color: #f2a4a4;
+    color: white;
+    border: none;
+    padding: 0 20px;
+    border-radius: 0 6px 6px 0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.newsletter-form button:hover {
+    background-color:#f2a4a4;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: #999;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+    }
+    
+    nav ul {
+        margin-top: 20px;
+    }
+    
+    nav ul li {
+        margin: 0 15px;
+    }
+    
+    .hero-contact {
+        padding: 60px 0;
+    }
+    
+    .hero-contact h2 {
+        font-size: 2rem;
+    }
+    
+    .contact-info,
+    .contact-form-section,
+    .social-section {
+        padding: 60px 0;
+    }
+}
+
+@media (max-width: 576px) {
+    nav ul li {
+        margin: 0 10px;
+    }
+    
+    .social-link {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+    
+    .form-container, 
+    .map-container {
+        padding: 25px;
+    }
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>242 Perfume</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Trang chủ</a></li>
+                <li><a href="Giới thiệu.html">Giới thiệu</a></li>
+                <li><a href="contact.html">Liên hệ</a></li>
+                <li><a href="page1.html">Sản phẩm</a></li>
+                <li><a href="Tin tức.html">Tin tức</a></li>
+                <li><a href="SignUp_LogIn_Form.html">Tài khoản</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero-contact">
+        <div class="container">
+            <h2>Liên Hệ Với Chúng Tôi</h2>
+            <p>Chúng tôi luôn sẵn sàng lắng nghe và hỗ trợ bạn</p>
+        </div>
+    </section>
+
+    <section class="contact-info">
+        <div class="container">
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Địa Chỉ</h3>
+                    <p>242 Đường Nguyễn Trãi, Quận 1</p>
+                    <p>Thành phố Hồ Chí Minh, Việt Nam</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <h3>Điện Thoại</h3>
+                    <p>+84 28 3123 4567</p>
+                    <p>+84 901 234 567</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email</h3>
+                    <p>info@242perfume.com</p>
+                    <p>support@242perfume.com</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Giờ Mở Cửa</h3>
+                    <p>Thứ Hai - Thứ Bảy: 9:00 - 21:00</p>
+                    <p>Chủ Nhật: 10:00 - 20:00</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-form-section">
+        <div class="container">
+            <div class="contact-content">
+                <div class="form-container">
+                    <h2>Gửi Tin Nhắn</h2>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Họ và Tên</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Số Điện Thoại</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Chủ Đề</label>
+                            <input type="text" id="subject" name="subject">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Tin Nhắn</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">Gửi Tin Nhắn</button>
+                    </form>
+                    <div id="formStatus" class="form-status"></div>
+                </div>
+
+                <div class="map-container">
+                    <h2>Bản Đồ</h2>
+                    <div id="map">
+                        <!-- Map placeholder -->
+                        <img src="/api/placeholder/600/400" alt="Google Maps placeholder">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="social-section">
+        <div class="container">
+            <h2>Kết Nối Với Chúng Tôi</h2>
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>Chúng tôi tuyển chọn những hương thơm tinh túy nhất từ khắp nơi trên thế giới, mang nghệ thuật nước hoa cao cấp đến với những khách hàng sành điệu.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li><a href="Giới thiệu.html">Giới thiệu</a></li>
+                    <li><a href="page1.html">Sản phẩm</a></li>
+                    <li><a href="Tin tức.html">Tin tức</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Customer Service</h3>
+                <ul>
+                    <li><a href="contact.html">Liên hệ</a></li>
+                    <li><a href="Chính sách đổi trả.html">Chính sách vận chuyển và đổi trả</a></li>
+                    <li><a href="FAQs.html">FAQs</a></li>
+                    <li><a href="Chính sách quyền riêng tư.html">Chính sách quyền riêng tư</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Newsletter</h3>
+                <p>Subscribe to receive updates on new arrivals and special promotions.</p>
+                <form>
+                    <input type="email" placeholder="Your email address" style="padding: 8px; width: 100%; margin-bottom: 10px;">
+                    <button type="submit" class="btn" style="width: 100%;">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>© 2025 Perfumery. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+    <script>
+        // Xử lý form liên hệ
+document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.getElementById('contactForm');
+    const formStatus = document.getElementById('formStatus');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Thu thập dữ liệu từ form
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value
+            };
+            
+            // Mô phỏng gửi dữ liệu (trong thực tế sẽ gửi đến server)
+            setTimeout(function() {
+                // Mô phỏng xử lý thành công
+                formStatus.textContent = 'Cảm ơn! Tin nhắn của bạn đã được gửi thành công. Chúng tôi sẽ phản hồi sớm nhất có thể.';
+                formStatus.className = 'form-status success';
+                formStatus.style.display = 'block';
+                
+                // Reset form
+                contactForm.reset();
+                
+                // Ẩn thông báo sau 5 giây
+                setTimeout(function() {
+                    formStatus.style.display = 'none';
+                }, 5000);
+            }, 1000);
+        });
+    }
+
+    // Animation cho các thẻ info
+    const infoCards = document.querySelectorAll('.info-card');
+    
+    const observerOptions = {
+        threshold: 0.2
+    };
+    
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+    
+    infoCards.forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        observer.observe(card);
+    });
+    
+    // Hiệu ứng hover cho các nút social
+    const socialLinks = document.querySelectorAll('.social-link');
+    
+    socialLinks.forEach(link => {
+        link.addEventListener('mouseover', function() {
+            this.style.transform = 'translateY(-5px)';
+        });
+        
+        link.addEventListener('mouseout', function() {
+            this.style.transform = 'translateY(0)';
+        });
+    });
+    
+    // Mô phỏng bản đồ (trong thực tế sẽ tích hợp Google Maps)
+    // Tạo mô phỏng map
+    const mapPlaceholder = document.querySelector('#map img');
+    if (mapPlaceholder) {
+        mapPlaceholder.style.width = '100%';
+        mapPlaceholder.style.height = '100%';
+        mapPlaceholder.style.objectFit = 'cover';
+    }
+    
+    // Xác thực form
+    function validateEmail(email) {
+        const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(String(email).toLowerCase());
+    }
+    
+    function validatePhone(phone) {
+        // Kiểm tra số điện thoại Việt Nam đơn giản
+        const re = /^(\+84|84|0)(3|5|7|8|9)[0-9]{8}$/;
+        return phone === '' || re.test(phone); // Cho phép trống
+    }
+    
+    if (contactForm) {
+        const emailInput = document.getElementById('email');
+        const phoneInput = document.getElementById('phone');
+        
+        emailInput.addEventListener('blur', function() {
+            if (this.value && !validateEmail(this.value)) {
+                this.style.borderColor = 'red';
+                // Thêm thông báo lỗi
+                let errorMsg = this.parentNode.querySelector('.error-message');
+                if (!errorMsg) {
+                    errorMsg = document.createElement('span');
+                    errorMsg.className = 'error-message';
+                    errorMsg.style.color = 'red';
+                    errorMsg.textContent = 'Email không hợp lệ';
+                    this.parentNode.appendChild(errorMsg);
+                }
+            } else {
+                this.style.borderColor = '';
+                // Xóa thông báo lỗi
+                let errorMsg = this.parentNode.querySelector('.error-message');
+                if (errorMsg) {
+                    errorMsg.remove();
+                }
+            }
+        });
+
+        // Xử lý form liên hệ
+document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.getElementById('contactForm');
+    const formStatus = document.getElementById('formStatus');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Thu thập dữ liệu từ form
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value
+            };
+            
+            // Mô phỏng gửi dữ liệu (trong thực tế sẽ gửi đến server)
+            setTimeout(function() {
+                // Mô phỏng xử lý thành công
+                formStatus.textContent = 'Cảm ơn! Tin nhắn của bạn đã được gửi thành công. Chúng tôi sẽ phản hồi sớm nhất có thể.';
+                formStatus.className = 'form-status success';
+                formStatus.style.display = 'block';
+                
+                // Reset form
+                contactForm.reset();
+                
+                // Ẩn thông báo sau 5 giây
+                setTimeout(function() {
+                    formStatus.style.display = 'none';
+                }, 5000);
+            }, 1000);
+        });
+    }
+
+    // Animation cho các thẻ info
+    const infoCards = document.querySelectorAll('.info-card');
+    
+    const observerOptions = {
+        threshold: 0.2
+    };
+    
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+    
+    infoCards.forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        observer.observe(card);
+    });
+    
+    // Hiệu ứng hover cho các nút social
+    const socialLinks = document.querySelectorAll('.social-link');
+    
+    socialLinks.forEach(link => {
+        link.addEventListener('mouseover', function() {
+            this.style.transform = 'translateY(-5px)';
+        });
+        
+        link.addEventListener('mouseout', function() {
+            this.style.transform = 'translateY(0)';
+        });
+    });
+    
+    // Mô phỏng bản đồ (trong thực tế sẽ tích hợp Google Maps)
+    // Tạo mô phỏng map
+    const mapPlaceholder = document.querySelector('#map img');
+    if (mapPlaceholder) {
+        mapPlaceholder.style.width = '100%';
+        mapPlaceholder.style.height = '100%';
+        mapPlaceholder.style.objectFit = 'cover';
+    }
+    
+    // Xác thực form
+    function validateEmail(email) {
+        const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(String(email).toLowerCase());
+    }
+    
+    function validatePhone(phone) {
+        // Kiểm tra số điện thoại Việt Nam đơn giản
+        const re = /^(\+84|84|0)(3|5|7|8|9)[0-9]{8}$/;
+        return phone === '' || re.test(phone); // Cho phép trống
+    }
+    
+    if (contactForm) {
+        const emailInput = document.getElementById('email');
+        const phoneInput = document.getElementById('phone');
+        
+        emailInput.addEventListener('blur', function() {
+            if (this.value && !validateEmail(this.value)) {
+                this.style.borderColor = 'red';
+                // Thêm thông báo lỗi
+                let errorMsg = this.parentNode.querySelector('.error-message');
+                if (!errorMsg) {
+                    errorMsg = document.createElement('span');
+                    errorMsg.className = 'error-message';
+                    errorMsg.style.color = 'red';
+                    errorMsg.style.fontSize = '12px';
+                    errorMsg.style.display = 'block';
+                    errorMsg.style.marginTop = '5px';
+                    this.parentNode.appendChild(errorMsg);
+                }
+                errorMsg.textContent = 'Vui lòng nhập email hợp lệ';
+            } else {
+                this.style.borderColor = '';
+                // Xóa thông báo lỗi nếu có
+                const errorMsg = this.parentNode.querySelector('.error-message');
+                if (errorMsg) {
+                    errorMsg.remove();
+                }
+            }
+        });
+        
+        phoneInput.addEventListener('blur', function() {
+            if (this.value && !validatePhone(this.value)) {
+                this.style.borderColor = 'red';
+                // Thêm thông báo lỗi
+                let errorMsg = this.parentNode.querySelector('.error-message');
+                if (!errorMsg) {
+                    errorMsg = document.createElement('span');
+                    errorMsg.className = 'error-message';
+                    errorMsg.style.color = 'red';
+                    errorMsg.style.fontSize = '12px';
+                    errorMsg.style.display = 'block';
+                    errorMsg.style.marginTop = '5px';
+                    this.parentNode.appendChild(errorMsg);
+                }
+                errorMsg.textContent = 'Vui lòng nhập số điện thoại hợp lệ';
+            } else {
+                this.style.borderColor = '';
+                // Xóa thông báo lỗi nếu có
+                const errorMsg = this.parentNode.querySelector('.error-message');
+                if (errorMsg) {
+                    errorMsg.remove();
+                }
+            }
+        });
+        
+        // Xác thực trước khi submit
+        contactForm.addEventListener('submit', function(e) {
+            let hasError = false;
+            
+            // Kiểm tra email
+            if (!validateEmail(emailInput.value)) {
+                emailInput.style.borderColor = 'red';
+                hasError = true;
+            }
+            
+            // Kiểm tra số điện thoại (nếu có)
+            if (phoneInput.value && !validatePhone(phoneInput.value)) {
+                phoneInput.style.borderColor = 'red';
+                hasError = true;
+            }
+            
+            if (hasError) {
+                e.preventDefault();
+                
+                // Hiển thị thông báo lỗi chung
+                formStatus.textContent = 'Vui lòng kiểm tra lại thông tin của bạn.';
+                formStatus.className = 'form-status error';
+                formStatus.style.display = 'block';
+            }
+        });
+    }
+    
+    // Hiệu ứng cuộn mượt cho menu
+    const navLinks = document.querySelectorAll('nav a');
+    
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            // Chỉ áp dụng cho các liên kết trong trang hiện tại
+            const targetId = this.getAttribute('href');
+            if (targetId.startsWith('#')) {
+                e.preventDefault();
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        });
+    });
+});
+        
+        phoneInput.addEventListener('blur', function() {
+            if (this.value && !validatePhone(this.value)) {
+                this.style.borderColor = 'red';
+                // Thêm thông báo lỗi
+                let errorMsg = this.parentNode.querySelector('.error-message');
+                if (!errorMsg) {
+                    errorMsg = document.createElement('span');
+                    errorMsg.className = 'error-message';
+                    errorMsg.style.color = 'red';
+                    errorMsg.style.fontSize = '12px';
+                    errorMsg.style.display = 'block';
+                    errorMsg.style.marginTop = '5px';
+                    this.parentNode.appendChild(errorMsg);
+                }
+                errorMsg.textContent = 'Vui lòng nhập số điện thoại hợp lệ';
+            } else {
+                this.style.borderColor = '';
+                // Xóa thông báo lỗi nếu có
+                const errorMsg = this.parentNode.querySelector('.error-message');
+                if (errorMsg) {
+                    errorMsg.remove();
+                }
+            }
+        });
+        
+        // Xác thực trước khi submit
+        contactForm.addEventListener('submit', function(e) {
+            let hasError = false;
+            
+            // Kiểm tra email
+            if (!validateEmail(emailInput.value)) {
+                emailInput.style.borderColor = 'red';
+                hasError = true;
+            }
+            
+            // Kiểm tra số điện thoại (nếu có)
+            if (phoneInput.value && !validatePhone(phoneInput.value)) {
+                phoneInput.style.borderColor = 'red';
+                hasError = true;
+            }
+            
+            if (hasError) {
+                e.preventDefault();
+                
+                // Hiển thị thông báo lỗi chung
+                formStatus.textContent = 'Vui lòng kiểm tra lại thông tin của bạn.';
+                formStatus.className = 'form-status error';
+                formStatus.style.display = 'block';
+            }
+        });
+    }
+
+        
+        // Hiệu ứng cuộn mượt cho menu
+        const navLinks = document.querySelectorAll('nav a');
+    });
+        </script>
+</body>
+</html>

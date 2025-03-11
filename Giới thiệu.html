@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giới thiệu - 242 Perfume</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+        }
+        
+        .header {
+            background-color: #e85c5c;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .nav {
+            display: flex;
+        }
+        
+        .nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+        
+        .main-content {
+            max-width: 1200px;
+            margin: 30px auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            line-height: 1.6;
+        }
+        
+        .main-content h1 {
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 28px;
+        }
+        
+        .main-content h2 {
+            color: #e85c5c;
+            margin: 25px 0 15px 0;
+            font-size: 22px;
+        }
+        
+        .main-content p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        .main-content ul {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .main-content li {
+            margin-bottom: 10px;
+        }
+        .social-icons {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            background-color: #e74c3c;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            text-decoration: none;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            transition: transform 0.2s, background-color 0.2s;
+        }
+        
+        .social-icon:hover {
+            transform: scale(1.1);
+        }
+        
+        .social-icon.phone {
+            background-color: #ecd4d1;
+        }
+        
+        .social-icon.zalo {
+            background-color: #0068ff;
+        }
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 40px 20px;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 20px;
+            padding: 0 15px;
+        }
+        
+        .footer-section h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e85c5c;
+            display: inline-block;
+        }
+        
+        .footer-section p, .footer-section a {
+            color: #ccc;
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+        }
+        
+        .footer-section a:hover {
+            color: white;
+        }
+        
+        .subscribe-form {
+            margin-top: 15px;
+        }
+        
+        .subscribe-form input {
+            padding: 10px;
+            width: 100%;
+            margin-bottom: 10px;
+            border: none;
+        }
+        
+        .subscribe-form button {
+            padding: 10px;
+            width: 100%;
+            background-color: #e85c5c;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .highlight {
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) {
+            .footer-section {
+                flex: 100%;
+            }
+            
+            .nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="logo">242 Perfume</div>
+        <div class="nav">
+            <a href="index.html">Trang chủ</a>
+            <a href="Giới thiệu.html">Giới thiệu</a>
+            <a href="contact.html">Liên hệ</a>
+            <a href="index.html">Sản phẩm</a>
+            <a href="Tin tức.html">Tin tức</a>
+            <a href="SignUp_LogIn_Form.html">Tài khoản</a>
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="main-content">
+        <h1>GIỚI THIỆU VỀ 242 PERFUME</h1>
+        
+        <p>Chào mừng quý khách đến với <span class="highlight">242 Perfume</span> – thiên đường của những mùi hương nhập khẩu tinh tế và sang trọng. Chúng tôi tự hào là địa chỉ tin cậy cho những ai đam mê và tìm kiếm sự hoàn hảo trong từng giọt nước hoa.</p>
+        
+        <h2>Về chúng tôi:</h2>
+        <p>Ra đời với sứ mệnh mang đến cho khách hàng Việt Nam những trải nghiệm hương thơm đẳng cấp, 242 Perfume chuyên cung cấp các dòng nước hoa nhập khẩu chính hãng từ các thương hiệu danh tiếng trên thế giới. Chúng tôi hiểu rằng, mỗi mùi hương không chỉ là sự kết hợp của các thành phần, mà còn là câu chuyện, là cảm xúc và phong cách sống của người sử dụng.</p>
+        
+        <h2>Sản phẩm của chúng tôi:</h2>
+        <p>Tại 242 Perfume, quý khách sẽ được khám phá bộ sưu tập nước hoa phong phú, từ những hương thơm cổ điển đến hiện đại, phù hợp với mọi cá tính và sở thích. Chúng tôi cam kết:</p>
+        <ul>
+            <li><span class="highlight">Chính hãng 100%:</span> Mọi sản phẩm đều được nhập khẩu trực tiếp, đảm bảo nguồn gốc rõ ràng và chất lượng tuyệt hảo.</li>
+            <li><span class="highlight">Đa dạng lựa chọn:</span> Từ các thương hiệu nổi tiếng như Chanel, Dior, Gucci đến những dòng niche độc đáo, chúng tôi đáp ứng mọi nhu cầu của khách hàng.</li>
+            <li><span class="highlight">Tư vấn chuyên nghiệp:</span> Đội ngũ nhân viên am hiểu về nước hoa sẽ giúp quý khách chọn lựa mùi hương phù hợp nhất với phong cách và sở thích cá nhân.</li>
+        </ul>
+        
+        <h2>Tại sao chọn 242 Perfume?</h2>
+        <ul>
+            <li><span class="highlight">Uy tín và kinh nghiệm:</span> Với nhiều năm hoạt động trong lĩnh vực nước hoa nhập khẩu, chúng tôi đã xây dựng được lòng tin và sự hài lòng từ hàng ngàn khách hàng.</li>
+            <li><span class="highlight">Giá cả cạnh tranh:</span> Chúng tôi luôn nỗ lực mang đến mức giá hợp lý nhất, cùng nhiều chương trình ưu đãi hấp dẫn.</li>
+            <li><span class="highlight">Dịch vụ hậu mãi chu đáo:</span> Chính sách đổi trả linh hoạt và hỗ trợ khách hàng tận tình sau mua hàng.</li>
+        </ul>
+        
+        <p>Hãy đến với <span class="highlight">242 Perfume</span> để trải nghiệm và khám phá thế giới hương thơm đẳng cấp. Chúng tôi hân hạnh được đồng hành cùng quý khách trên hành trình tìm kiếm mùi hương hoàn hảo nhất.</p>
+    </div>
+    <div class="social-icons">
+        <a href="#" class="social-icon phone">📞</a>
+        <a href="#" class="social-icon zalo">Z</a>
+    </div>
+    <!-- Footer -->
+    <div class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>Chúng tôi tuyển chọn những hương thơm tinh túy nhất từ khắp nơi trên thế giới, mang nghệ thuật nước hoa cao cấp đến với những khách hàng sành điệu.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="index.html">Trang chủ</a>
+                <a href="Giới thiệu.html">Giới thiệu</a>
+                <a href="page1.html">Sản phẩm</a>
+                <a href="Tin tức.html">Tin tức</a>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Customer Service</h3>
+                <a href="Contact.html">Liên hệ</a>
+                <a href="Chính sách đổi trả.html">Chính sách vận chuyển và đổi trả</a>
+                <a href="FAQs.html">FAQs</a>
+                <a href="Chính sách quyền riêng tư.html">Chính sách quyền riêng tư</a>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Newsletter</h3>
+                <p>Subscribe to receive updates on new arrivals and special promotions.</p>
+                <div class="subscribe-form">
+                    <input type="email" placeholder="Your email address">
+                    <button>Subscribe</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
